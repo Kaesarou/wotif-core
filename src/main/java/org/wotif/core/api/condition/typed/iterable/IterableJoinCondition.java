@@ -1,4 +1,4 @@
-package org.wotif.core.api.condition.typed.iterables;
+package org.wotif.core.api.condition.typed.iterable;
 
 import org.wotif.core.api.condition.JoinEnum;
 

@@ -1,9 +1,9 @@
 package org.wotif.core.api;
 
 import org.wotif.core.api.condition.JoinEnum;
-import org.wotif.core.api.condition.typed.iterables.IterableCondition;
-import org.wotif.core.api.condition.typed.iterables.IterableJoinCondition;
-import org.wotif.core.api.condition.typed.iterables.arrays.*;
+import org.wotif.core.api.condition.typed.iterable.IterableCondition;
+import org.wotif.core.api.condition.typed.iterable.IterableJoinCondition;
+import org.wotif.core.api.condition.typed.iterable.arrays.*;
 import org.wotif.core.api.condition.typed.string.StringCondition;
 import org.wotif.core.api.condition.typed.string.StringJoinCondition;
 

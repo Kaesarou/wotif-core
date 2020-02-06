@@ -1,7 +1,7 @@
-package org.wotif.core.api.condition.typed.iterables.arrays;
+package org.wotif.core.api.condition.typed.iterable.arrays;
 
-import org.wotif.core.api.condition.typed.iterables.AbstractIterableCondition;
-import org.wotif.core.api.condition.typed.iterables.IIterableCondition;
+import org.wotif.core.api.condition.typed.iterable.AbstractIterableCondition;
+import org.wotif.core.api.condition.typed.iterable.IIterableCondition;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.wotif.core.api.condition.typed.iterables;
+package org.wotif.core.api.condition.typed.iterable;
 
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.AbstractJoinCondition;
@@ -28,12 +28,12 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult contains(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult contains(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.contains(values));
     }
 
     @Override
-    public CompletableResult doesNotContains(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult doesNotContains(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.doesNotContains(values));
     }
 
@@ -44,7 +44,7 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult containsAnyOf(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult containsAnyOf(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.containsAnyOf(values));
     }
 
@@ -55,7 +55,7 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult containsOnly(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult containsOnly(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.containsOnly(values));
     }
 
@@ -66,7 +66,7 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult doesNotContainsOnly(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult doesNotContainsOnly(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.doesNotContainsOnly(values));
     }
 
@@ -77,7 +77,7 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult containsOnlyOnce(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult containsOnlyOnce(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.containsOnlyOnce(values));
     }
 
@@ -88,27 +88,27 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult containsMoreThanOnce(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult containsMoreThanOnce(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.containsMoreThanOnce(values));
     }
 
     @Override
-    public CompletableResult startsWith(ITERABLE_TYPE value) {
+    public final CompletableResult startsWith(ITERABLE_TYPE value) {
         return this.functionToApply.apply(a -> a.startsWith(value));
     }
 
     @Override
-    public CompletableResult doesNotStartsWith(ITERABLE_TYPE value) {
+    public final CompletableResult doesNotStartsWith(ITERABLE_TYPE value) {
         return this.functionToApply.apply(a -> a.doesNotStartsWith(value));
     }
 
     @Override
-    public CompletableResult endsWith(ITERABLE_TYPE value) {
+    public final CompletableResult endsWith(ITERABLE_TYPE value) {
         return this.functionToApply.apply(a -> a.endsWith(value));
     }
 
     @Override
-    public CompletableResult doesNotEndsWith(ITERABLE_TYPE value) {
+    public final CompletableResult doesNotEndsWith(ITERABLE_TYPE value) {
         return this.functionToApply.apply(a -> a.doesNotEndsWith(value));
     }
 
@@ -119,7 +119,7 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult isSubsetOf(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult isSubsetOf(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.isSubsetOf(values));
     }
 
@@ -130,123 +130,123 @@ public abstract class AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE>
     }
 
     @Override
-    public CompletableResult isNotSubsetOf(Iterable<ITERABLE_TYPE> values) {
+    public final CompletableResult isNotSubsetOf(Iterable<ITERABLE_TYPE> values) {
         return this.functionToApply.apply(a -> a.isNotSubsetOf(values));
     }
 
     @Override
-    public CompletableResult isEmpty() {
+    public final CompletableResult isEmpty() {
         return this.functionToApply.apply(AbstractIterableCondition::isEmpty);
     }
 
     @Override
-    public CompletableResult isNotEmpty() {
+    public final CompletableResult isNotEmpty() {
         return this.functionToApply.apply(AbstractIterableCondition::isNotEmpty);
     }
 
     @Override
-    public CompletableResult doesNotHasAnyElementsOfTypes(Class<?>... values) {
+    public final CompletableResult doesNotHasAnyElementsOfTypes(Class<?>... values) {
         return this.functionToApply.apply(a -> a.doesNotHasAnyElementsOfTypes(values));
     }
 
     @Override
-    public CompletableResult doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values) {
+    public final CompletableResult doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values) {
         return this.functionToApply.apply(a -> a.doesNotHasAnyElementsOfTypes(values));
     }
 
     @Override
-    public CompletableResult hasAnyElementsOfTypes(Class<?>... values) {
+    public final CompletableResult hasAnyElementsOfTypes(Class<?>... values) {
         return this.functionToApply.apply(a -> a.hasAnyElementsOfTypes(values));
     }
 
     @Override
-    public CompletableResult hasAnyElementsOfTypes(Iterable<Class<?>> values) {
+    public final CompletableResult hasAnyElementsOfTypes(Iterable<Class<?>> values) {
         return this.functionToApply.apply(a -> a.hasAnyElementsOfTypes(values));
     }
 
     @Override
-    public CompletableResult doesNotContainsNull() {
+    public final CompletableResult doesNotContainsNull() {
         return this.functionToApply.apply(AbstractIterableCondition::doesNotContainsNull);
     }
 
     @Override
-    public CompletableResult containsNull() {
+    public final CompletableResult containsNull() {
         return this.functionToApply.apply(AbstractIterableCondition::containsNull);
     }
 
     @Override
-    public CompletableResult containsOnlyNull() {
+    public final CompletableResult containsOnlyNull() {
         return this.functionToApply.apply(AbstractIterableCondition::containsOnlyNull);
     }
 
     @Override
-    public CompletableResult doesNotContainsOnlyNull() {
+    public final CompletableResult doesNotContainsOnlyNull() {
         return this.functionToApply.apply(AbstractIterableCondition::doesNotContainsOnlyNull);
     }
 
     @Override
-    public CompletableResult hasDuplicate() {
+    public final CompletableResult hasDuplicate() {
         return this.functionToApply.apply(AbstractIterableCondition::hasDuplicate);
     }
 
     @Override
-    public CompletableResult doesNotHasDuplicate() {
+    public final CompletableResult doesNotHasDuplicate() {
         return this.functionToApply.apply(AbstractIterableCondition::doesNotHasDuplicate);
     }
 
     @Override
-    public CompletableResult anyMatch(Predicate<? super ITERABLE_TYPE> predicate) {
+    public final CompletableResult anyMatch(Predicate<? super ITERABLE_TYPE> predicate) {
         return this.functionToApply.apply(a -> a.anyMatch(predicate));
     }
 
     @Override
-    public CompletableResult allMatch(Predicate<? super ITERABLE_TYPE> predicate) {
+    public final CompletableResult allMatch(Predicate<? super ITERABLE_TYPE> predicate) {
         return this.functionToApply.apply(a -> a.allMatch(predicate));
     }
 
     @Override
-    public CompletableResult noneMatch(Predicate<? super ITERABLE_TYPE> predicate) {
+    public final CompletableResult noneMatch(Predicate<? super ITERABLE_TYPE> predicate) {
         return this.functionToApply.apply(a -> a.noneMatch(predicate));
 
     }
 
     @Override
-    public CompletableResult hasSameSizeAs(ITERABLE_TYPE[] value) {
+    public final CompletableResult hasSameSizeAs(ITERABLE_TYPE[] value) {
         return this.functionToApply.apply(a -> a.hasSameSizeAs(value));
     }
 
     @Override
-    public CompletableResult hasSize(long size) {
+    public final CompletableResult hasSize(long size) {
         return this.functionToApply.apply(a -> a.hasSize(size));
     }
 
     @Override
-    public CompletableResult hasSizeBetween(long start, long end) {
+    public final CompletableResult hasSizeBetween(long start, long end) {
         return this.functionToApply.apply(a -> a.hasSizeBetween(start, end));
     }
 
     @Override
-    public CompletableResult hasSizeGreaterThan(long size) {
+    public final CompletableResult hasSizeGreaterThan(long size) {
         return this.functionToApply.apply(a -> a.hasSizeGreaterThan(size));
     }
 
     @Override
-    public CompletableResult hasSizeGreaterThanOrEqualTo(long size) {
+    public final CompletableResult hasSizeGreaterThanOrEqualTo(long size) {
         return this.functionToApply.apply(a -> a.hasSizeGreaterThanOrEqualTo(size));
     }
 
     @Override
-    public CompletableResult hasSizeLessThan(long size) {
+    public final CompletableResult hasSizeLessThan(long size) {
         return this.functionToApply.apply(a -> a.hasSizeLessThan(size));
     }
 
     @Override
-    public CompletableResult hasSizeLessThanOrEqualTo(long size) {
+    public final CompletableResult hasSizeLessThanOrEqualTo(long size) {
         return this.functionToApply.apply(a -> a.hasSizeLessThanOrEqualTo(size));
     }
 
     @Override
-    public CompletableResult hasSizeDifferentFrom(long size) {
+    public final CompletableResult hasSizeDifferentFrom(long size) {
         return this.functionToApply.apply(a -> a.hasSizeDifferentFrom(size));
     }
 

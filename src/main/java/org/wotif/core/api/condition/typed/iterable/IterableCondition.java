@@ -1,4 +1,4 @@
-package org.wotif.core.api.condition.typed.iterables;
+package org.wotif.core.api.condition.typed.iterable;
 
 public class IterableCondition<ITERABLE_TYPE> extends AbstractIterableCondition<ITERABLE_TYPE, Iterable<ITERABLE_TYPE>>
         implements IIterableCondition<ITERABLE_TYPE, Iterable<ITERABLE_TYPE>> {

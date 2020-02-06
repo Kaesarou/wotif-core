@@ -1,4 +1,4 @@
-package org.wotif.core.api.condition.typed.iterables;
+package org.wotif.core.api.condition.typed.iterable;
 
 import org.wotif.core.api.Term;
 
@@ -14,7 +14,7 @@ class InternalIterableConditions<TYPE> {
 
     private final Term<Iterable<TYPE>> terms;
 
-    public InternalIterableConditions(Iterable<TYPE> term) {
+    InternalIterableConditions(Iterable<TYPE> term) {
         this.terms = new Term<>(term);
     }
 
