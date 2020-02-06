@@ -40,7 +40,7 @@ public class InstructionsBlock<RETURN> {
         return instructionsBlock(anotherResult, supplier);
     }
 
-    public RETURN endIF() {
+    public RETURN end() {
         if (this.previousInstructions.result().value())
             return this.previousInstructions.executeAction();
         return null;
