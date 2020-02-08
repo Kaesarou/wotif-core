@@ -12,7 +12,7 @@ public class IterableJoinCondition<ITERABLE_TYPE>
     }
 
     @Override
-    protected IterableCondition<ITERABLE_TYPE> getInstanceOfCondition(Iterable<ITERABLE_TYPE> term) {
+    public IterableCondition<ITERABLE_TYPE> getInstanceOfCondition(Iterable<ITERABLE_TYPE> term) {
         return new IterableCondition<>(term);
     }
 

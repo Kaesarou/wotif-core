@@ -64,10 +64,10 @@ public interface IMapCondition<KEY, VALUE> extends ICondition<Map<KEY, VALUE>> {
 
     CompletableResult doesNotHasDuplicateValues();
 
-    CompletableResult anyValuesMatch(Predicate<? super Map.Entry<KEY, VALUE>> predicate);
+    CompletableResult anyValuesMatch(Predicate<VALUE> predicate);
 
-    CompletableResult allValuesMatch(Predicate<? super Map.Entry<KEY, VALUE>> predicate);
+    CompletableResult allValuesMatch(Predicate<VALUE> predicate);
 
-    CompletableResult noneValuesMatch(Predicate<? super Map.Entry<KEY, VALUE>> predicate);
+    CompletableResult noneValuesMatch(Predicate<VALUE> predicate);
 
 }
