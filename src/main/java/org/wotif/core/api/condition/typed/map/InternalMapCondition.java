@@ -51,7 +51,6 @@ class InternalMapCondition<KEY, VALUE> {
         return stream().filter(e -> e.getValue().equals(value)).count() > 1;
     }
 
-
     private boolean isIn(Class<?> clazz) {
         return stream().anyMatch(e -> e.getValue().getClass().equals(clazz));
     }
