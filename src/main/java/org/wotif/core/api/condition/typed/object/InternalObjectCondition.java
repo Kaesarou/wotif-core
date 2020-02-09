@@ -19,7 +19,7 @@ class InternalObjectCondition<TYPE> {
 
     private Stream<Field> fields() {
         Field[] fields = this.term.value().getClass().getDeclaredFields();
-        return Arrays.stream(fields);
+        return Arrays.stream(fields).filter(m -> !m.isSynthetic());
     }
 
     private boolean check(Field f, FieldChecker fieldChecker) throws IllegalAccessException {

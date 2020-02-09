@@ -27,5 +27,6 @@ out
 /dependency-reduced-pom.xml
 /bin/
 .mvn/wrapper/maven-wrapper.jar
-
+#Codacy
+/.codacy-coverage
 
