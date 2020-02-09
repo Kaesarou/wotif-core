@@ -7,7 +7,7 @@ import org.wotif.core.api.condition.JoinEnum;
 import java.util.Map;
 import java.util.function.Predicate;
 
-final class MapJoinCondition<KEY, VALUE> extends AbstractJoinCondition<Map<KEY, VALUE>, MapCondition<KEY, VALUE>>
+public class MapJoinCondition<KEY, VALUE> extends AbstractJoinCondition<Map<KEY, VALUE>, MapCondition<KEY, VALUE>>
         implements IMapCondition<KEY, VALUE> {
 
     @SafeVarargs
@@ -84,8 +84,8 @@ final class MapJoinCondition<KEY, VALUE> extends AbstractJoinCondition<Map<KEY, 
     }
 
     @Override
-    final public CompletableResult doesNotContainsAnyEntriesOf(Map<KEY, VALUE> values) {
-        return this.functionToApply.apply(m -> m.doesNotContainsAnyEntriesOf(values));
+    final public CompletableResult containsNoneEntriesOf(Map<KEY, VALUE> values) {
+        return this.functionToApply.apply(m -> m.containsNoneEntriesOf(values));
     }
 
     @Override

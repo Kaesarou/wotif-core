@@ -19,41 +19,40 @@ class InternalIterableConditions<TYPE> {
     }
 
     private Stream<TYPE> stream() {
-        return iterableToStream(this.terms.value());
+        return stream(this.terms.value());
     }
 
-    private Stream<TYPE> iterableToStream(Iterable<TYPE> values) {
+    private <T> Stream<T> stream(Iterable<T> values) {
         return StreamSupport.stream(values.spliterator(), false);
     }
 
-    private boolean isContained(TYPE value, Stream<TYPE> container) {
+    private boolean isIn(TYPE value, Stream<TYPE> container) {
         return container.anyMatch(e -> e.equals(value));
     }
 
-    private boolean isContained(Class<?> value, Iterable<Class<?>> container) {
-        return StreamSupport.stream(container.spliterator(), false)
-                .anyMatch(e -> e.equals(value));
+    private boolean isIn(Class<?> value) {
+        return stream().anyMatch(e -> e.getClass().equals(value));
     }
 
     boolean contains(Iterable<TYPE> values) {
-        return iterableToStream(values).allMatch(e -> this.isContained(e, stream()));
+        return stream(values).allMatch(e -> this.isIn(e, stream()));
     }
 
     boolean containsAnyOf(Iterable<TYPE> values) {
-        return iterableToStream(values).anyMatch(e -> this.isContained(e, stream()));
+        return stream(values).anyMatch(e -> this.isIn(e, stream()));
     }
 
     boolean containsOnly(Iterable<TYPE> values) {
-        return this.contains(values) && iterableToStream(values).count() == stream().count();
+        return this.contains(values) && stream(values).count() == stream().count();
     }
 
     boolean containsOnlyOnce(Iterable<TYPE> values) {
-        return iterableToStream(values)
+        return stream(values)
                 .allMatch(e -> stream().filter(l -> l.equals(e)).count() == 1);
     }
 
     boolean containsMoreThanOnce(Iterable<TYPE> values) {
-        return iterableToStream(values)
+        return stream(values)
                 .allMatch(e -> stream().filter(l -> l.equals(e)).count() > 1);
     }
 
@@ -67,7 +66,7 @@ class InternalIterableConditions<TYPE> {
     }
 
     boolean isSubsetOf(Iterable<TYPE> values) {
-        return stream().allMatch(e -> this.isContained(e, iterableToStream(values)));
+        return stream().allMatch(e -> this.isIn(e, stream(values)));
     }
 
     boolean isEmpty() {
@@ -75,7 +74,7 @@ class InternalIterableConditions<TYPE> {
     }
 
     boolean hasAnyElementsOfTypes(Iterable<Class<?>> values) {
-        return stream().anyMatch(e -> isContained(e.getClass(), values));
+        return stream(values).anyMatch(this::isIn);
     }
 
     boolean containsNull() {
@@ -107,7 +106,7 @@ class InternalIterableConditions<TYPE> {
     }
 
     boolean hasSameSizeAs(Iterable<TYPE> values) {
-        return hasSize(iterableToStream(values).count());
+        return hasSize(stream(values).count());
     }
 
     boolean hasSizeBetween(long start, long end) {

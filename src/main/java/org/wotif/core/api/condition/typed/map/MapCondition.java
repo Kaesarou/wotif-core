@@ -11,6 +11,7 @@ public class MapCondition<KEY, VALUE> extends AbstractCondition<Map<KEY, VALUE>>
 
     public MapCondition(Map<KEY, VALUE> term) {
         super(term);
+        this.internalMapCondition = new InternalMapCondition<>(this.term);
     }
 
     @Override
@@ -88,7 +89,7 @@ public class MapCondition<KEY, VALUE> extends AbstractCondition<Map<KEY, VALUE>>
     }
 
     @Override
-    final public CompletableResult doesNotContainsAnyEntriesOf(Map<KEY, VALUE> values) {
+    final public CompletableResult containsNoneEntriesOf(Map<KEY, VALUE> values) {
         boolean result = !this.internalMapCondition.containsAnyEntriesOf(values);
         return new CompletableResult(result);
     }

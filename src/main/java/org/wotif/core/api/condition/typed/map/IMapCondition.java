@@ -30,7 +30,7 @@ public interface IMapCondition<KEY, VALUE> extends ICondition<Map<KEY, VALUE>> {
 
     CompletableResult containsAnyEntriesOf(Map<KEY, VALUE> values);
 
-    CompletableResult doesNotContainsAnyEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult containsNoneEntriesOf(Map<KEY, VALUE> values);
 
     CompletableResult containsOnly(Map.Entry<KEY, VALUE>... values);
 

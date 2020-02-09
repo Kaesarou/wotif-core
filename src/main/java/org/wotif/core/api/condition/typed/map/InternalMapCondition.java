@@ -4,13 +4,16 @@ import org.wotif.core.api.Term;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 class InternalMapCondition<KEY, VALUE> {
 
-    private Term<Map<KEY, VALUE>> term;
+    private final Term<Map<KEY, VALUE>> term;
+
+    InternalMapCondition(Term<Map<KEY, VALUE>> term) {
+        this.term = term;
+    }
 
     private Stream<Map.Entry<KEY, VALUE>> stream() {
         return this.term.value().entrySet().stream();
@@ -43,6 +46,7 @@ class InternalMapCondition<KEY, VALUE> {
     private boolean isInValuesOnlyOnce(VALUE value) {
         return stream().filter(e -> e.getValue().equals(value)).count() == 1;
     }
+
     private boolean isInValuesMoreThanOnce(VALUE value) {
         return stream().filter(e -> e.getValue().equals(value)).count() > 1;
     }
@@ -117,11 +121,11 @@ class InternalMapCondition<KEY, VALUE> {
     }
 
     final boolean containsNullValues() {
-        return stream().anyMatch(Objects::isNull);
+        return stream().anyMatch(e -> e.getValue() == null);
     }
 
     final boolean containsOnlyNullValues() {
-        return stream().allMatch(Objects::isNull);
+        return stream().allMatch(e -> e.getValue() == null);
     }
 
     final boolean hasDuplicateValues() {
