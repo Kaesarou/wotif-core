@@ -1,13 +1,13 @@
 package org.wotif.core.api.iterables;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.junit.runner.Request;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 import static org.wotif.core.api.Conditions.checkIf;
 import static org.wotif.core.api.Conditions.checkIfAnyOf;
@@ -265,16 +265,16 @@ public class IterablesConditionTest {
 
     @Test
     public void testIterables() {
-        List<Character> listCharacters = ImmutableList.of('a','b','c','d');
-        List<Character> listCharacters2 = ImmutableList.of('e','f','g','h');
-        Set<String> setStrings = ImmutableSet.of("aa","bb","cc","dd");
+        List<Character> listCharacters = ImmutableList.of('a', 'b', 'c', 'd');
+        List<Character> listCharacters2 = ImmutableList.of('e', 'f', 'g', 'h');
+        Set<String> setStrings = ImmutableSet.of("aa", "bb", "cc", "dd");
         Integer result = checkIfAnyOf(listCharacters, listCharacters2).contains('c')
-                .and(checkIf(setStrings).hasSizeBetween(1,6))
+                .and(checkIf(setStrings).hasSizeBetween(1, 6))
                 .and(checkIf(listCharacters).anyMatch(e -> e.equals('b')))
                 .then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
         Integer result2 = checkIfAnyOf(listCharacters, listCharacters2).contains('j')
-                .and(checkIf(setStrings).hasSizeBetween(1,6))
+                .and(checkIf(setStrings).hasSizeBetween(1, 6))
                 .and(checkIf(listCharacters).anyMatch(e -> e.equals('b')))
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result2).isEqualTo(0);

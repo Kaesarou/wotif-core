@@ -1,12 +1,11 @@
 package org.wotif.core.api.condition;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.wotif.core.api.CompletableResult;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public abstract class AbstractJoinCondition<TYPE, CONDITION extends AbstractCondition<TYPE>> implements ICondition<TYPE> {
@@ -71,6 +70,32 @@ public abstract class AbstractJoinCondition<TYPE, CONDITION extends AbstractCond
     @Override
     public CompletableResult isNotInstanceOf(Class<?> className) {
         return this.functionToApply.apply(b -> b.isNotInstanceOf(className));
+    }
+
+    @Override
+    public CompletableResult hasSameClassAs(@NonNull Object other) {
+        return this.functionToApply.apply(b -> b.hasSameClassAs(other));
+    }
+
+    @Override
+    public CompletableResult doesNotHasSameClassAs(@NonNull Object other) {
+        return this.functionToApply.apply(b -> b.doesNotHasSameClassAs(other));
+    }
+
+    public CompletableResult hasSameHashCodeAs(@NonNull Object other) {
+        return this.functionToApply.apply(b -> b.hasSameHashCodeAs(other));
+    }
+
+    public CompletableResult doesNotHasSameHashCodeAs(@NonNull Object other) {
+        return this.functionToApply.apply(b -> b.doesNotHasSameHashCodeAs(other));
+    }
+
+    public CompletableResult hasToString(String expectedToString) {
+        return this.functionToApply.apply(b -> b.hasToString(expectedToString));
+    }
+
+    public CompletableResult doesNotHasToString(String expectedToString) {
+        return this.functionToApply.apply(b -> b.doesNotHasToString(expectedToString));
     }
 
 }

@@ -21,6 +21,8 @@ import org.wotif.core.api.condition.typed.number.longs.LongCondition;
 import org.wotif.core.api.condition.typed.number.longs.LongJoinCondition;
 import org.wotif.core.api.condition.typed.number.shorts.ShortCondition;
 import org.wotif.core.api.condition.typed.number.shorts.ShortJoinCondition;
+import org.wotif.core.api.condition.typed.object.ObjectCondition;
+import org.wotif.core.api.condition.typed.object.ObjectJoinCondition;
 import org.wotif.core.api.condition.typed.string.StringCondition;
 import org.wotif.core.api.condition.typed.string.StringJoinCondition;
 
@@ -377,6 +379,26 @@ public class Conditions {
 
     @SafeVarargs
     public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> checkIfNoneOf(Map<KEY, VALUE>... terms) {
+        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    }
+
+    //String
+    public static <T> ObjectCondition<T> checkIf(T term) {
+        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    }
+
+    @SafeVarargs
+    public static <T> ObjectJoinCondition<T> checkIfAnyOf(T... terms) {
+        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    }
+
+    @SafeVarargs
+    public static <T> ObjectJoinCondition<T> checkIfAllOf(T... terms) {
+        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    }
+
+    @SafeVarargs
+    public static <T> ObjectJoinCondition<T> checkIfNoneOf(T... terms) {
         return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
     }
 }

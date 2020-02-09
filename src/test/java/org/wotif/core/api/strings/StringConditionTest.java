@@ -385,4 +385,11 @@ public class StringConditionTest {
         Assertions.assertThat(result.get()).isEqualTo(2);
     }
 
+    @Test
+    public void testIfHasSameClassHasWithNullValue() {
+        Integer result = checkIf("montest").hasSameClassAs("null")
+                .then(() -> 1).end();
+        Assertions.assertThat(result).isEqualTo(1);
+    }
+
 }

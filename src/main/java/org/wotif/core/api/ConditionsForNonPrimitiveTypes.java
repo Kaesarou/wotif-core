@@ -6,6 +6,8 @@ import org.wotif.core.api.condition.typed.iterable.IterableJoinCondition;
 import org.wotif.core.api.condition.typed.iterable.arrays.*;
 import org.wotif.core.api.condition.typed.map.MapCondition;
 import org.wotif.core.api.condition.typed.map.MapJoinCondition;
+import org.wotif.core.api.condition.typed.object.ObjectCondition;
+import org.wotif.core.api.condition.typed.object.ObjectJoinCondition;
 import org.wotif.core.api.condition.typed.string.StringCondition;
 import org.wotif.core.api.condition.typed.string.StringJoinCondition;
 
@@ -224,5 +226,25 @@ class ConditionsForNonPrimitiveTypes extends ConditionsForPrimitiveTypes {
     @SafeVarargs
     public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> checkIfNoneOf(Map<KEY, VALUE>... terms) {
         return new MapJoinCondition<>(JoinEnum.NONEOF, terms);
+    }
+
+    //String
+    public static <T> ObjectCondition<T> checkIf(T term) {
+        return new ObjectCondition<>(term);
+    }
+
+    @SafeVarargs
+    public static <T> ObjectJoinCondition<T> checkIfAnyOf(T... terms) {
+        return new ObjectJoinCondition<>(JoinEnum.ANYOF, terms);
+    }
+
+    @SafeVarargs
+    public static <T> ObjectJoinCondition<T> checkIfAllOf(T... terms) {
+        return new ObjectJoinCondition<>(JoinEnum.ALLOF, terms);
+    }
+
+    @SafeVarargs
+    static <T> ObjectJoinCondition<T> checkIfNoneOf(T... terms) {
+        return new ObjectJoinCondition<>(JoinEnum.NONEOF, terms);
     }
 }
