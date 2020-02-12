@@ -34,372 +34,372 @@ public class Conditions {
     }
 
     //Boolean
-    public static BooleanCondition checkIf(Boolean term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static BooleanCondition when(Boolean term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static BooleanJoinCondition checkIfAnyOf(Boolean... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static BooleanJoinCondition whenAnyOf(Boolean... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static BooleanJoinCondition checkIfAllOf(Boolean... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static BooleanJoinCondition whenAllOf(Boolean... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static BooleanJoinCondition checkIfNoneOf(Boolean... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static BooleanJoinCondition whenNoneOf(Boolean... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //String
-    public static StringCondition checkIf(String term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static StringCondition when(String term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static StringJoinCondition checkIfAnyOf(String... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static StringJoinCondition whenAnyOf(String... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static StringJoinCondition checkIfAllOf(String... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static StringJoinCondition whenAllOf(String... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static StringJoinCondition checkIfNoneOf(String... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static StringJoinCondition whenNoneOf(String... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Integer
-    public static IntegerCondition checkIf(Integer term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static IntegerCondition when(Integer term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static IntegerJoinCondition checkIfAnyOf(Integer... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static IntegerJoinCondition whenAnyOf(Integer... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static IntegerJoinCondition checkIfAllOf(Integer... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static IntegerJoinCondition whenAllOf(Integer... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static IntegerJoinCondition checkIfNoneOf(Integer... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
-    }
-
-    //Double
-    public static DoubleCondition checkIf(Double term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
-    }
-
-    public static DoubleJoinCondition checkIfAnyOf(Double... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
-    }
-
-    public static DoubleJoinCondition checkIfAllOf(Double... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
-    }
-
-    public static DoubleJoinCondition checkIfNoneOf(Double... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static IntegerJoinCondition whenNoneOf(Integer... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Double
-    public static FloatCondition checkIf(Float term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static DoubleCondition when(Double term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static FloatJoinCondition checkIfAnyOf(Float... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static DoubleJoinCondition whenAnyOf(Double... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static FloatJoinCondition checkIfAllOf(Float... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static DoubleJoinCondition whenAllOf(Double... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static FloatJoinCondition checkIfNoneOf(Float... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static DoubleJoinCondition whenNoneOf(Double... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
+    }
+
+    //Double
+    public static FloatCondition when(Float term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
+    }
+
+    public static FloatJoinCondition whenAnyOf(Float... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
+    }
+
+    public static FloatJoinCondition whenAllOf(Float... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
+    }
+
+    public static FloatJoinCondition whenNoneOf(Float... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Short
-    public static ShortCondition checkIf(Short term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static ShortCondition when(Short term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static ShortJoinCondition checkIfAnyOf(Short... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static ShortJoinCondition whenAnyOf(Short... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static ShortJoinCondition checkIfAllOf(Short... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static ShortJoinCondition whenAllOf(Short... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static ShortJoinCondition checkIfNoneOf(Short... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static ShortJoinCondition whenNoneOf(Short... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Byte
-    public static ByteCondition checkIf(Byte term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static ByteCondition when(Byte term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static ByteJoinCondition checkIfAnyOf(Byte... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static ByteJoinCondition whenAnyOf(Byte... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static ByteJoinCondition checkIfAllOf(Byte... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static ByteJoinCondition whenAllOf(Byte... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static ByteJoinCondition checkIfNoneOf(Byte... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static ByteJoinCondition whenNoneOf(Byte... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Long
-    public static LongCondition checkIf(Long term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static LongCondition when(Long term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static LongJoinCondition checkIfAnyOf(Long... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static LongJoinCondition whenAnyOf(Long... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static LongJoinCondition checkIfAllOf(Long... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static LongJoinCondition whenAllOf(Long... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static LongJoinCondition checkIfNoneOf(Long... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static LongJoinCondition whenNoneOf(Long... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Character
-    public static CharacterCondition checkIf(Character term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static CharacterCondition when(Character term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static CharacterJoinCondition checkIfAnyOf(Character... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static CharacterJoinCondition whenAnyOf(Character... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static CharacterJoinCondition checkIfAllOf(Character... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static CharacterJoinCondition whenAllOf(Character... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static CharacterJoinCondition checkIfNoneOf(Character... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static CharacterJoinCondition whenNoneOf(Character... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays Generic
-    public static <T> ArraysCondition<T> checkIf(T[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static <T> ArraysCondition<T> when(T[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
     @SafeVarargs
-    public static <T> ArraysJoinCondition<T> checkIfAnyOf(T[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static <T> ArraysJoinCondition<T> whenAnyOf(T[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
     @SafeVarargs
-    public static <T> ArraysJoinCondition<T> checkIfAllOf(T[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static <T> ArraysJoinCondition<T> whenAllOf(T[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
     @SafeVarargs
-    public static <T> ArraysJoinCondition<T> checkIfNoneOf(T[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static <T> ArraysJoinCondition<T> whenNoneOf(T[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays boolean
-    public static BooleanArraysCondition checkIf(boolean[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static BooleanArraysCondition when(boolean[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static BooleanArraysJoinCondition checkIfAnyOf(boolean[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static BooleanArraysJoinCondition whenAnyOf(boolean[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static BooleanArraysJoinCondition checkIfAllOf(boolean[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static BooleanArraysJoinCondition whenAllOf(boolean[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static BooleanArraysJoinCondition checkIfNoneOf(boolean[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static BooleanArraysJoinCondition whenNoneOf(boolean[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays byte
-    public static ByteArraysCondition checkIf(byte[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static ByteArraysCondition when(byte[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static ByteArraysJoinCondition checkIfAnyOf(byte[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static ByteArraysJoinCondition whenAnyOf(byte[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static ByteArraysJoinCondition checkIfAllOf(byte[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static ByteArraysJoinCondition whenAllOf(byte[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static ByteArraysJoinCondition checkIfNoneOf(byte[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static ByteArraysJoinCondition whenNoneOf(byte[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays char
-    public static CharArraysCondition checkIf(char[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static CharArraysCondition when(char[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static CharArraysJoinCondition checkIfAnyOf(char[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static CharArraysJoinCondition whenAnyOf(char[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static CharArraysJoinCondition checkIfAllOf(char[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static CharArraysJoinCondition whenAllOf(char[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static CharArraysJoinCondition checkIfNoneOf(char[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static CharArraysJoinCondition whenNoneOf(char[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays double
-    public static DoubleArraysCondition checkIf(double[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static DoubleArraysCondition when(double[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static DoubleArraysJoinCondition checkIfAnyOf(double[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static DoubleArraysJoinCondition whenAnyOf(double[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static DoubleArraysJoinCondition checkIfAllOf(double[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static DoubleArraysJoinCondition whenAllOf(double[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static DoubleArraysJoinCondition checkIfNoneOf(double[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static DoubleArraysJoinCondition whenNoneOf(double[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays float
-    public static FloatArraysCondition checkIf(float[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static FloatArraysCondition when(float[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static FloatArraysJoinCondition checkIfAnyOf(float[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static FloatArraysJoinCondition whenAnyOf(float[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static FloatArraysJoinCondition checkIfAllOf(float[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static FloatArraysJoinCondition whenAllOf(float[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static FloatArraysJoinCondition checkIfNoneOf(float[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static FloatArraysJoinCondition whenNoneOf(float[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays int
-    public static IntArraysCondition checkIf(int[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static IntArraysCondition when(int[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static IntArraysJoinCondition checkIfAnyOf(int[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static IntArraysJoinCondition whenAnyOf(int[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static IntArraysJoinCondition checkIfAllOf(int[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static IntArraysJoinCondition whenAllOf(int[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static IntArraysJoinCondition checkIfNoneOf(int[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static IntArraysJoinCondition whenNoneOf(int[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays long
-    public static LongArraysCondition checkIf(long[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static LongArraysCondition when(long[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static LongArraysJoinCondition checkIfAnyOf(long[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static LongArraysJoinCondition whenAnyOf(long[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static LongArraysJoinCondition checkIfAllOf(long[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static LongArraysJoinCondition whenAllOf(long[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static LongArraysJoinCondition checkIfNoneOf(long[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static LongArraysJoinCondition whenNoneOf(long[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Arrays short
-    public static ShortArraysCondition checkIf(short[] term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static ShortArraysCondition when(short[] term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
-    public static ShortArraysJoinCondition checkIfAnyOf(short[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static ShortArraysJoinCondition whenAnyOf(short[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
-    public static ShortArraysJoinCondition checkIfAllOf(short[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static ShortArraysJoinCondition whenAllOf(short[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
-    public static ShortArraysJoinCondition checkIfNoneOf(short[]... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static ShortArraysJoinCondition whenNoneOf(short[]... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Iterables
-    public static <T> IterableCondition<T> checkIf(Iterable<T> term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static <T> IterableCondition<T> when(Iterable<T> term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
     @SafeVarargs
-    public static <T> IterableJoinCondition<T> checkIfAnyOf(Iterable<T>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static <T> IterableJoinCondition<T> whenAnyOf(Iterable<T>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
     @SafeVarargs
-    public static <T> IterableJoinCondition<T> checkIfAllOf(Iterable<T>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static <T> IterableJoinCondition<T> whenAllOf(Iterable<T>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
     @SafeVarargs
-    public static <T> IterableJoinCondition<T> checkIfNoneOf(Iterable<T>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static <T> IterableJoinCondition<T> whenNoneOf(Iterable<T>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //Map
-    public static <KEY, VALUE> MapCondition<KEY, VALUE> checkIf(Map<KEY, VALUE> term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static <KEY, VALUE> MapCondition<KEY, VALUE> when(Map<KEY, VALUE> term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
     @SafeVarargs
-    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> checkIfAnyOf(Map<KEY, VALUE>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> whenAnyOf(Map<KEY, VALUE>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
     @SafeVarargs
-    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> checkIfAllOf(Map<KEY, VALUE>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> whenAllOf(Map<KEY, VALUE>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
     @SafeVarargs
-    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> checkIfNoneOf(Map<KEY, VALUE>... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static <KEY, VALUE> MapJoinCondition<KEY, VALUE> whenNoneOf(Map<KEY, VALUE>... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 
     //String
-    public static <T> ObjectCondition<T> checkIf(T term) {
-        return ConditionsForNonPrimitiveTypes.checkIf(term);
+    public static <T> ObjectCondition<T> when(T term) {
+        return ConditionsForNonPrimitiveTypes.when(term);
     }
 
     @SafeVarargs
-    public static <T> ObjectJoinCondition<T> checkIfAnyOf(T... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAnyOf(terms);
+    public static <T> ObjectJoinCondition<T> whenAnyOf(T... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAnyOf(terms);
     }
 
     @SafeVarargs
-    public static <T> ObjectJoinCondition<T> checkIfAllOf(T... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfAllOf(terms);
+    public static <T> ObjectJoinCondition<T> whenAllOf(T... terms) {
+        return ConditionsForNonPrimitiveTypes.whenAllOf(terms);
     }
 
     @SafeVarargs
-    public static <T> ObjectJoinCondition<T> checkIfNoneOf(T... terms) {
-        return ConditionsForNonPrimitiveTypes.checkIfNoneOf(terms);
+    public static <T> ObjectJoinCondition<T> whenNoneOf(T... terms) {
+        return ConditionsForNonPrimitiveTypes.whenNoneOf(terms);
     }
 }
 

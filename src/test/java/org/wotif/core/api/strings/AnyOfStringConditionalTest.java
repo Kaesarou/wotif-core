@@ -3,13 +3,13 @@ package org.wotif.core.api.strings;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.wotif.core.api.Conditions.checkIfAnyOf;
+import static org.wotif.core.api.Conditions.whenAnyOf;
 
 public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithContainsThenReturnOne() {
-        Integer result = checkIfAnyOf("test", "none", "none").contains("est")
+        Integer result = whenAnyOf("test", "none", "none").contains("est")
                 .then(() -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -17,7 +17,7 @@ public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithContainsThenReturnZero() {
-        Integer result = checkIfAnyOf("none", "none", "none").contains("est")
+        Integer result = whenAnyOf("none", "none", "none").contains("est")
                 .then(() -> 1)
                 .orElse(() -> 0)
                 .end();
@@ -26,7 +26,7 @@ public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithEqualsThenReturnOne() {
-        Integer result = checkIfAnyOf("test", "none", "none").isEqualTo("test")
+        Integer result = whenAnyOf("test", "none", "none").isEqualTo("test")
                 .then(() -> 1)
                 .orElse(() -> 0)
                 .end();
@@ -35,7 +35,7 @@ public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithEqualsThenReturnZero() {
-        Integer result = checkIfAnyOf("none", "none", "none").isEqualTo("test")
+        Integer result = whenAnyOf("none", "none", "none").isEqualTo("test")
                 .then(() -> 1)
                 .orElse(() -> 0)
                 .end();
@@ -44,7 +44,7 @@ public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithIsNullThenReturnOne() {
-        Integer result = checkIfAnyOf(null, "string", "string").isNull()
+        Integer result = whenAnyOf(null, "string", "string").isNull()
                 .then(() -> 1)
                 .orElse(() -> 0)
                 .end();
@@ -53,7 +53,7 @@ public class AnyOfStringConditionalTest {
 
     @Test
     public void testAnyOfWithIsNullThenReturnZero() {
-        Integer result = checkIfAnyOf("string", "string", "string").isNull()
+        Integer result = whenAnyOf("string", "string", "string").isNull()
                 .then(() -> 1)
                 .orElse(() -> 0)
                 .end();

@@ -5,29 +5,29 @@ import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.wotif.core.api.Conditions.checkIf;
-import static org.wotif.core.api.Conditions.checkIfAllOf;
+import static org.wotif.core.api.Conditions.when;
+import static org.wotif.core.api.Conditions.whenAllOf;
 
 public class BooleanConditionTest {
 
     @Test
     public void returnsOneWithoutExecutions() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isTrue().then(() -> 1).end();
+        Integer result = when(variableToTest).isTrue().then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void returnNullWithoutExecutions() {
         boolean variableToTest = false;
-        Integer result = checkIf(variableToTest).isTrue().then(() -> 1).end();
+        Integer result = when(variableToTest).isTrue().then(() -> 1).end();
         Assertions.assertThat(result).isNull();
     }
 
     @Test
     public void orElseReturnZeroWithoutExecutions() {
         boolean variableToTest = false;
-        Integer result = checkIf(variableToTest).isTrue()
+        Integer result = when(variableToTest).isTrue()
                 .then(() -> 1)
                 .orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(0);
@@ -36,7 +36,7 @@ public class BooleanConditionTest {
     @Test
     public void orElseReturnOneWithoutExecutions() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isTrue()
+        Integer result = when(variableToTest).isTrue()
                 .then(() -> 1)
                 .orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -45,7 +45,7 @@ public class BooleanConditionTest {
     @Test
     public void ifIsFalseThenReturnOne() {
         boolean variableToTest = false;
-        Integer result = checkIf(variableToTest).isFalse()
+        Integer result = when(variableToTest).isFalse()
                 .then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -53,7 +53,7 @@ public class BooleanConditionTest {
     @Test
     public void ifIsFalseThenReturnZero() {
         boolean variableToTest = false;
-        Integer result = checkIf(variableToTest).isFalse()
+        Integer result = when(variableToTest).isFalse()
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -61,7 +61,7 @@ public class BooleanConditionTest {
     @Test
     public void ifVariableIsEqualToTrueThenReturnOne() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isEqualTo(true)
+        Integer result = when(variableToTest).isEqualTo(true)
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -69,7 +69,7 @@ public class BooleanConditionTest {
     @Test
     public void ifVariableIsEqualToTrueThenReturnZero() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isEqualTo(false)
+        Integer result = when(variableToTest).isEqualTo(false)
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -77,7 +77,7 @@ public class BooleanConditionTest {
     @Test
     public void ifVariableIsNotEqualToTrueThenReturnZero() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isDifferentFrom(false)
+        Integer result = when(variableToTest).isDifferentFrom(false)
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -85,7 +85,7 @@ public class BooleanConditionTest {
     @Test
     public void ifVariableIsNullThenReturnOne() {
         Boolean variableToTest = null;
-        Integer result = checkIf(variableToTest).isNull()
+        Integer result = when(variableToTest).isNull()
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -93,15 +93,15 @@ public class BooleanConditionTest {
     @Test
     public void ifVariableIsNotNullThenReturnOne() {
         boolean variableToTest = true;
-        Integer result = checkIf(variableToTest).isNotNull()
+        Integer result = when(variableToTest).isNotNull()
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void testTwoDifferentValuesWithIsTrueAndIsFalseThenReturnOne() {
-        Integer result = checkIf(true).isTrue()
-                .and(checkIf(false).isFalse())
+        Integer result = when(true).isTrue()
+                .and(when(false).isFalse())
                 .then(() -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -109,9 +109,9 @@ public class BooleanConditionTest {
 
     @Test
     public void testDifferentValuesWithIsTrueIsFalseOrAllOfIsTrueThenReturnOne() {
-        Integer result = checkIf(false).isTrue()
-                .and(checkIf(true).isFalse())
-                .or(checkIfAllOf(true, true).isTrue())
+        Integer result = when(false).isTrue()
+                .and(when(true).isFalse())
+                .or(whenAllOf(true, true).isTrue())
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -119,9 +119,9 @@ public class BooleanConditionTest {
 
     @Test
     public void testDifferentValuesWithIsTrueIsFalseOrAllOfIsTrueThenReturnZero() {
-        Integer result = checkIf(false).isTrue()
-                .and(checkIf(false).isFalse())
-                .or(checkIfAllOf(false, true).isTrue())
+        Integer result = when(false).isTrue()
+                .and(when(false).isFalse())
+                .or(whenAllOf(false, true).isTrue())
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
@@ -131,7 +131,7 @@ public class BooleanConditionTest {
     public void testIfVariableIsTrueThanExecuteMethod() {
         Boolean variable = true;
         AtomicReference<Boolean> result = new AtomicReference<>(false);
-        checkIf(variable).isTrue().then(() -> result.set(true)).end();
+        when(variable).isTrue().then(() -> result.set(true)).end();
         Assertions.assertThat(result.get()).isTrue();
     }
 
@@ -139,7 +139,7 @@ public class BooleanConditionTest {
     public void testIfVariableIsTrueThanDoNotExecuteMethod() {
         Boolean variable = false;
         AtomicReference<Boolean> result = new AtomicReference<>(null);
-        checkIf(variable).isTrue().then(() -> result.set(true)).orElse(() -> result.set(false)).end();
+        when(variable).isTrue().then(() -> result.set(true)).orElse(() -> result.set(false)).end();
         Assertions.assertThat(result.get()).isFalse();
     }
 

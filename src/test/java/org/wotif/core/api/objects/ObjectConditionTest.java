@@ -3,7 +3,7 @@ package org.wotif.core.api.objects;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.wotif.core.api.Conditions.checkIf;
+import static org.wotif.core.api.Conditions.when;
 
 public class ObjectConditionTest {
 
@@ -12,8 +12,8 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass(null, 1, true);
         TestClass objectToTest_2 = new TestClass("test", 1, true);
 
-        Integer result = checkIf(objectToTest_1).hasNullProperties()
-                .and(checkIf(objectToTest_2).doesNotHasNullProperties()).then(() -> 1).end();
+        Integer result = when(objectToTest_1).hasNullProperties()
+                .and(when(objectToTest_2).doesNotHasNullProperties()).then(() -> 1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -23,8 +23,8 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass(null, null, null);
         TestClass objectToTest_2 = new TestClass(null, null, true);
 
-        Integer result_1 = checkIf(objectToTest_1).hasAllNullProperties().then(() -> 1).end();
-        Integer result_2 = checkIf(objectToTest_2).hasAllNullProperties().then(() -> 1)
+        Integer result_1 = when(objectToTest_1).hasAllNullProperties().then(() -> 1).end();
+        Integer result_2 = when(objectToTest_2).hasAllNullProperties().then(() -> 1)
                 .orElse(() -> 0).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
@@ -36,8 +36,8 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
         TestClass objectToTest_2 = new TestClass(null, 1, true);
 
-        Integer result_1 = checkIf(objectToTest_1).hasNoNullProperties().then(() -> 1).end();
-        Integer result_2 = checkIf(objectToTest_2).hasNoNullProperties().then(() -> 1)
+        Integer result_1 = when(objectToTest_1).hasNoNullProperties().then(() -> 1).end();
+        Integer result_2 = when(objectToTest_2).hasNoNullProperties().then(() -> 1)
                 .orElse(() -> 0).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
@@ -48,8 +48,8 @@ public class ObjectConditionTest {
     public void testIfObjectHasProperty() {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
-        Integer result_1 = checkIf(objectToTest_1).hasProperty("property_1")
-                .and(checkIf(objectToTest_1).doesNotHasProperty("test")).then(() -> 1).end();
+        Integer result_1 = when(objectToTest_1).hasProperty("property_1")
+                .and(when(objectToTest_1).doesNotHasProperty("test")).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
@@ -58,8 +58,8 @@ public class ObjectConditionTest {
     public void testIfObjectHasPropertyWithValue() {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
-        Integer result_1 = checkIf(objectToTest_1).hasPropertyWithValue("property_1", "test")
-                .and(checkIf(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
+        Integer result_1 = when(objectToTest_1).hasPropertyWithValue("property_1", "test")
+                .and(when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
