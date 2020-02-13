@@ -2,6 +2,7 @@ package org.wotif.core.api.condition.typed.map;
 
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.AbstractCondition;
+
 import java.util.Map;
 import java.util.function.Predicate;
 
