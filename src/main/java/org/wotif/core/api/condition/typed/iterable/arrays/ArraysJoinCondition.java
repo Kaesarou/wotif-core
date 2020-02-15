@@ -4,17 +4,19 @@ import org.wotif.core.api.condition.JoinEnum;
 import org.wotif.core.api.condition.typed.iterable.AbstractIterableJoinCondition;
 import org.wotif.core.api.condition.typed.iterable.IIterableCondition;
 
-public class ArraysJoinCondition<ITERABLE_TYPE>
-        extends AbstractIterableJoinCondition<ITERABLE_TYPE, ITERABLE_TYPE[]>
-        implements IIterableCondition<ITERABLE_TYPE, ITERABLE_TYPE[]> {
+import java.util.List;
+
+public class ArraysJoinCondition<T>
+        extends AbstractIterableJoinCondition<T, T[]>
+        implements IIterableCondition<T, T[], List<T[]>> {
 
     @SafeVarargs
-    public ArraysJoinCondition(JoinEnum joinType, ITERABLE_TYPE[]... terms) {
+    public ArraysJoinCondition(JoinEnum joinType, T[]... terms) {
         super(joinType, terms);
     }
 
     @Override
-    protected ArraysCondition<ITERABLE_TYPE> getInstanceOfCondition(ITERABLE_TYPE[] term) {
+    protected ArraysCondition<T> getInstanceOfCondition(T[] term) {
         return new ArraysCondition<>(term);
     }
 

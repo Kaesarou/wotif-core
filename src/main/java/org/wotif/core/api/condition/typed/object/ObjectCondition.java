@@ -3,61 +3,61 @@ package org.wotif.core.api.condition.typed.object;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.AbstractCondition;
 
-public class ObjectCondition<TYPE> extends AbstractCondition<TYPE>
-        implements IObjectCondition<TYPE> {
+public class ObjectCondition<T> extends AbstractCondition<T>
+        implements IObjectCondition<T, T> {
 
-    private InternalObjectCondition<TYPE> internalObjectCondition;
+    private InternalObjectCondition<T> internalObjectCondition;
 
-    public ObjectCondition(TYPE term) {
+    public ObjectCondition(T term) {
         super(term);
         this.internalObjectCondition = new InternalObjectCondition<>(this.term);
     }
 
     @Override
-    public CompletableResult hasNullProperties() {
+    public CompletableResult<T> hasNullProperties() {
         boolean result = this.internalObjectCondition.hasNullProperties();
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult doesNotHasNullProperties() {
+    public CompletableResult<T> doesNotHasNullProperties() {
         boolean result = !this.internalObjectCondition.hasNullProperties();
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult hasAllNullProperties() {
+    public CompletableResult<T> hasAllNullProperties() {
         boolean result = this.internalObjectCondition.hasAllNullProperties();
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult hasNoNullProperties() {
+    public CompletableResult<T> hasNoNullProperties() {
         boolean result = this.internalObjectCondition.hasNoNullProperties();
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult hasProperty(String name) {
+    public CompletableResult<T> hasProperty(String name) {
         boolean result = this.internalObjectCondition.hasProperty(name);
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult doesNotHasProperty(String name) {
+    public CompletableResult<T> doesNotHasProperty(String name) {
         boolean result = !this.internalObjectCondition.hasProperty(name);
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult hasPropertyWithValue(String propertyName, Object propertyValue) {
+    public CompletableResult<T> hasPropertyWithValue(String propertyName, Object propertyValue) {
         boolean result = this.internalObjectCondition.hasPropertyWithValue(propertyName, propertyValue);
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 
     @Override
-    public CompletableResult doesNotHasPropertyWithValue(String propertyName, Object propertyValue) {
+    public CompletableResult<T> doesNotHasPropertyWithValue(String propertyName, Object propertyValue) {
         boolean result = !this.internalObjectCondition.hasPropertyWithValue(propertyName, propertyValue);
-        return new CompletableResult(result);
+        return new CompletableResult<>(term, result);
     }
 }

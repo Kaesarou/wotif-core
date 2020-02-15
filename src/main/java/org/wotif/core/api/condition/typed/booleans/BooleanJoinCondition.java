@@ -4,7 +4,10 @@ import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.AbstractJoinCondition;
 import org.wotif.core.api.condition.JoinEnum;
 
-public class BooleanJoinCondition extends AbstractJoinCondition<Boolean, BooleanCondition> implements IBooleanCondition {
+import java.util.List;
+
+public class BooleanJoinCondition extends AbstractJoinCondition<Boolean, BooleanCondition>
+        implements IBooleanCondition<List<Boolean>> {
 
     public BooleanJoinCondition(JoinEnum joinType, Boolean... terms) {
         super(joinType, terms);
@@ -16,12 +19,12 @@ public class BooleanJoinCondition extends AbstractJoinCondition<Boolean, Boolean
     }
 
     @Override
-    public CompletableResult isTrue() {
+    public CompletableResult<List<Boolean>> isTrue() {
         return this.functionToApply.apply(BooleanCondition::isTrue);
     }
 
     @Override
-    public CompletableResult isFalse() {
+    public CompletableResult<List<Boolean>> isFalse() {
         return this.functionToApply.apply(BooleanCondition::isFalse);
     }
 

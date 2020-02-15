@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShortArraysCondition extends AbstractIterableCondition<Short, short[]>
-        implements IIterableCondition<Short, short[]> {
+        implements IIterableCondition<Short, short[], short[]> {
 
     public ShortArraysCondition(short[] term) {
         super(term);

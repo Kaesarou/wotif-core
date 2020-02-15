@@ -7,23 +7,23 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-class InternalMapCondition<KEY, VALUE> {
+class InternalMapCondition<K, V> {
 
-    private final Term<Map<KEY, VALUE>> term;
+    private final Term<Map<K, V>> term;
 
-    InternalMapCondition(Term<Map<KEY, VALUE>> term) {
+    InternalMapCondition(Term<Map<K, V>> term) {
         this.term = term;
     }
 
-    private Stream<Map.Entry<KEY, VALUE>> stream() {
+    private Stream<Map.Entry<K, V>> stream() {
         return this.term.value().entrySet().stream();
     }
 
-    private Stream<Map.Entry<KEY, VALUE>> stream(Map.Entry<KEY, VALUE>[] entries) {
+    private Stream<Map.Entry<K, V>> stream(Map.Entry<K, V>[] entries) {
         return Arrays.stream(entries);
     }
 
-    private Stream<Map.Entry<KEY, VALUE>> stream(Map<KEY, VALUE> map) {
+    private Stream<Map.Entry<K, V>> stream(Map<K, V> map) {
         return map.entrySet().stream();
     }
 
@@ -31,23 +31,23 @@ class InternalMapCondition<KEY, VALUE> {
         return Arrays.stream(array);
     }
 
-    private boolean isIn(Stream<Map.Entry<KEY, VALUE>> entries, Map.Entry<KEY, VALUE> entry) {
+    private boolean isIn(Stream<Map.Entry<K, V>> entries, Map.Entry<K, V> entry) {
         return entries.anyMatch(e -> e.equals(entry));
     }
 
-    private boolean isInKeys(KEY key) {
+    private boolean isInKeys(K key) {
         return stream().anyMatch(e -> e.getKey().equals(key));
     }
 
-    private boolean isInValues(VALUE value) {
+    private boolean isInValues(V value) {
         return stream().anyMatch(e -> e.getValue().equals(value));
     }
 
-    private boolean isInValuesOnlyOnce(VALUE value) {
+    private boolean isInValuesOnlyOnce(V value) {
         return stream().filter(e -> e.getValue().equals(value)).count() == 1;
     }
 
-    private boolean isInValuesMoreThanOnce(VALUE value) {
+    private boolean isInValuesMoreThanOnce(V value) {
         return stream().filter(e -> e.getValue().equals(value)).count() > 1;
     }
 
@@ -56,58 +56,58 @@ class InternalMapCondition<KEY, VALUE> {
     }
 
     @SafeVarargs
-    final boolean contains(Map.Entry<KEY, VALUE>... values) {
+    final boolean contains(Map.Entry<K, V>... values) {
         return stream(values).allMatch(e -> isIn(stream(), e));
     }
 
     @SafeVarargs
-    final boolean containsKeys(KEY... values) {
+    final boolean containsKeys(K... values) {
         return stream(values).allMatch(this::isInKeys);
     }
 
     @SafeVarargs
-    final boolean containsValues(VALUE... values) {
+    final boolean containsValues(V... values) {
         return stream(values).allMatch(this::isInValues);
     }
 
-    final boolean containsAllEntriesOf(Map<KEY, VALUE> values) {
+    final boolean containsAllEntriesOf(Map<K, V> values) {
         return stream(values).allMatch(e -> isIn(stream(), e));
     }
 
     @SafeVarargs
-    final boolean containsAnyOf(Map.Entry<KEY, VALUE>... values) {
+    final boolean containsAnyOf(Map.Entry<K, V>... values) {
         return stream(values).anyMatch(e -> isIn(stream(), e));
     }
 
-    final boolean containsAnyEntriesOf(Map<KEY, VALUE> values) {
+    final boolean containsAnyEntriesOf(Map<K, V> values) {
         return stream(values).anyMatch(e -> isIn(stream(), e));
     }
 
     @SafeVarargs
-    final boolean containsOnly(Map.Entry<KEY, VALUE>... values) {
+    final boolean containsOnly(Map.Entry<K, V>... values) {
         return this.contains(values) && stream().count() == stream(values).count();
     }
 
     @SafeVarargs
-    final boolean doesNotContainsOnly(Map.Entry<KEY, VALUE>... values) {
+    final boolean doesNotContainsOnly(Map.Entry<K, V>... values) {
         return this.contains(values) && stream().count() > stream(values).count();
     }
 
-    final boolean containsOnlyEntriesOf(Map<KEY, VALUE> values) {
+    final boolean containsOnlyEntriesOf(Map<K, V> values) {
         return containsAllEntriesOf(values) && stream().count() == stream(values).count();
     }
 
-    final boolean doesNotContainsOnlyEntriesOf(Map<KEY, VALUE> values) {
+    final boolean doesNotContainsOnlyEntriesOf(Map<K, V> values) {
         return containsAllEntriesOf(values) && stream().count() > stream(values).count();
     }
 
     @SafeVarargs
-    final boolean containsOnlyOnceValues(VALUE... values) {
+    final boolean containsOnlyOnceValues(V... values) {
         return stream(values).allMatch(this::isInValuesOnlyOnce);
     }
 
     @SafeVarargs
-    final boolean containsMoreThanOnceValues(VALUE... values) {
+    final boolean containsMoreThanOnceValues(V... values) {
         return stream(values).allMatch(this::isInValuesMoreThanOnce);
     }
 
@@ -131,15 +131,15 @@ class InternalMapCondition<KEY, VALUE> {
         return stream().anyMatch(e -> !isInValuesOnlyOnce(e.getValue()));
     }
 
-    final boolean anyValuesMatch(Predicate<VALUE> predicate) {
+    final boolean anyValuesMatch(Predicate<V> predicate) {
         return stream().map(Map.Entry::getValue).anyMatch(predicate);
     }
 
-    final boolean allValuesMatch(Predicate<VALUE> predicate) {
+    final boolean allValuesMatch(Predicate<V> predicate) {
         return stream().map(Map.Entry::getValue).allMatch(predicate);
     }
 
-    final boolean noneValuesMatch(Predicate<VALUE> predicate) {
+    final boolean noneValuesMatch(Predicate<V> predicate) {
         return stream().map(Map.Entry::getValue).noneMatch(predicate);
     }
 

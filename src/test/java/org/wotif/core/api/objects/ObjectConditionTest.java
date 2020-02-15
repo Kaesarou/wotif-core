@@ -1,9 +1,14 @@
 package org.wotif.core.api.objects;
 
+import io.vavr.control.Option;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.wotif.core.api.Conditions.when;
+import static org.wotif.core.api.Conditions.whenAllOf;
 
 public class ObjectConditionTest {
 
@@ -62,6 +67,21 @@ public class ObjectConditionTest {
                 .and(when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
+    }
+
+    @Test
+    public void testIfContainsPropertyThenMap() {
+        TestClass objectToTest_1 = new TestClass("test", 1, true);
+
+        String result = when(objectToTest_1).hasProperty("property_1").map(TestClass::getProperty_1);
+        List<Integer> list = whenAllOf(1, 2, 3).isPositive().map(l -> {
+            List<Integer> li = new ArrayList<>(l);
+            li.add(4);
+            return li;
+        });
+
+        Assertions.assertThat(result).isEqualTo("test");
+        Assertions.assertThat(list).contains(1,2,3,4);
     }
 
 }

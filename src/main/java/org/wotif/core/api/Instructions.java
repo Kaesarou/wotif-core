@@ -4,27 +4,27 @@ import io.vavr.control.Either;
 
 import java.util.function.Supplier;
 
-public class Instructions<RETURN> {
+public class Instructions<T, R> {
 
-    private Result result;
+    private Result<?> result;
 
-    private Either<Supplier<RETURN>, CallBack> action;
+    private Either<Supplier<R>, CallBack> action;
 
-    public Instructions(Result result, Supplier<RETURN> supplier) {
+    public Instructions(Result<?> result, Supplier<R> supplier) {
         this.result = result;
         this.action = Either.left(supplier);
     }
 
-    public Instructions(Result result, CallBack callBack) {
+    public Instructions(Result<?> result, CallBack callBack) {
         this.result = result;
         this.action = Either.right(callBack);
     }
 
-    public Result result() {
+    public Result<?> result() {
         return this.result;
     }
 
-    public RETURN executeAction() {
+    public R executeAction() {
         if (this.action.isLeft()) {
             return this.action.left().get().get();
         }

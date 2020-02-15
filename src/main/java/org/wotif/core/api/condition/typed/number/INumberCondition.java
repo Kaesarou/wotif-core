@@ -3,14 +3,14 @@ package org.wotif.core.api.condition.typed.number;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.typed.IComparableCondition;
 
-public interface INumberCondition<NUMBER extends Number & Comparable<NUMBER>> extends IComparableCondition<NUMBER> {
+public interface INumberCondition<N extends Number & Comparable<N>, R> extends IComparableCondition<N, R> {
 
-    CompletableResult isZero();
+    CompletableResult<R> isZero();
 
-    CompletableResult isDifferentFromZero();
+    CompletableResult<R> isDifferentFromZero();
 
-    CompletableResult isPositive();
+    CompletableResult<R> isPositive();
 
-    CompletableResult isNegative();
+    CompletableResult<R> isNegative();
 
 }

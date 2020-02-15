@@ -5,96 +5,96 @@ import org.wotif.core.api.condition.ICondition;
 
 import java.util.function.Predicate;
 
-public interface IIterableCondition<ITERABLE_TYPE, ITERABLE> extends ICondition<ITERABLE> {
+public interface IIterableCondition<T,I, R> extends ICondition<I, R> {
 
-    CompletableResult contains(ITERABLE_TYPE... values);
+    CompletableResult<R> contains(T... values);
 
-    CompletableResult doesNotContains(ITERABLE_TYPE... values);
+    CompletableResult<R> doesNotContains(T... values);
 
-    CompletableResult contains(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> contains(Iterable<T> values);
 
-    CompletableResult doesNotContains(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> doesNotContains(Iterable<T> values);
 
-    CompletableResult containsAnyOf(ITERABLE_TYPE... values);
+    CompletableResult<R> containsAnyOf(T... values);
 
-    CompletableResult containsAnyOf(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> containsAnyOf(Iterable<T> values);
 
-    CompletableResult containsOnly(ITERABLE_TYPE... values);
+    CompletableResult<R> containsOnly(T... values);
 
-    CompletableResult containsOnly(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> containsOnly(Iterable<T> values);
 
-    CompletableResult doesNotContainsOnly(ITERABLE_TYPE... values);
+    CompletableResult<R> doesNotContainsOnly(T... values);
 
-    CompletableResult doesNotContainsOnly(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> doesNotContainsOnly(Iterable<T> values);
 
-    CompletableResult containsOnlyOnce(ITERABLE_TYPE... values);
+    CompletableResult<R> containsOnlyOnce(T... values);
 
-    CompletableResult containsOnlyOnce(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> containsOnlyOnce(Iterable<T> values);
 
-    CompletableResult containsMoreThanOnce(ITERABLE_TYPE... values);
+    CompletableResult<R> containsMoreThanOnce(T... values);
 
-    CompletableResult containsMoreThanOnce(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> containsMoreThanOnce(Iterable<T> values);
 
-    CompletableResult startsWith(ITERABLE_TYPE value);
+    CompletableResult<R> startsWith(T value);
 
-    CompletableResult doesNotStartsWith(ITERABLE_TYPE value);
+    CompletableResult<R> doesNotStartsWith(T value);
 
-    CompletableResult endsWith(ITERABLE_TYPE value);
+    CompletableResult<R> endsWith(T value);
 
-    CompletableResult doesNotEndsWith(ITERABLE_TYPE value);
+    CompletableResult<R> doesNotEndsWith(T value);
 
-    CompletableResult isSubsetOf(ITERABLE_TYPE... values);
+    CompletableResult<R> isSubsetOf(T... values);
 
-    CompletableResult isSubsetOf(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> isSubsetOf(Iterable<T> values);
 
-    CompletableResult isNotSubsetOf(ITERABLE_TYPE... values);
+    CompletableResult<R> isNotSubsetOf(T... values);
 
-    CompletableResult isNotSubsetOf(Iterable<ITERABLE_TYPE> values);
+    CompletableResult<R> isNotSubsetOf(Iterable<T> values);
 
-    CompletableResult isEmpty();
+    CompletableResult<R> isEmpty();
 
-    CompletableResult isNotEmpty();
+    CompletableResult<R> isNotEmpty();
 
-    CompletableResult doesNotHasAnyElementsOfTypes(Class<?>... values);
+    CompletableResult<R> doesNotHasAnyElementsOfTypes(Class<?>... values);
 
-    CompletableResult doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values);
+    CompletableResult<R> doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values);
 
-    CompletableResult hasAnyElementsOfTypes(Class<?>... values);
+    CompletableResult<R> hasAnyElementsOfTypes(Class<?>... values);
 
-    CompletableResult hasAnyElementsOfTypes(Iterable<Class<?>> values);
+    CompletableResult<R> hasAnyElementsOfTypes(Iterable<Class<?>> values);
 
-    CompletableResult doesNotContainsNull();
+    CompletableResult<R> doesNotContainsNull();
 
-    CompletableResult containsNull();
+    CompletableResult<R> containsNull();
 
-    CompletableResult containsOnlyNull();
+    CompletableResult<R> containsOnlyNull();
 
-    CompletableResult doesNotContainsOnlyNull();
+    CompletableResult<R> doesNotContainsOnlyNull();
 
-    CompletableResult hasDuplicate();
+    CompletableResult<R> hasDuplicate();
 
-    CompletableResult doesNotHasDuplicate();
+    CompletableResult<R> doesNotHasDuplicate();
 
-    CompletableResult anyMatch(Predicate<? super ITERABLE_TYPE> predicate);
+    CompletableResult<R> anyMatch(Predicate<? super T> predicate);
 
-    CompletableResult allMatch(Predicate<? super ITERABLE_TYPE> predicate);
+    CompletableResult<R> allMatch(Predicate<? super T> predicate);
 
-    CompletableResult noneMatch(Predicate<? super ITERABLE_TYPE> predicate);
+    CompletableResult<R> noneMatch(Predicate<? super T> predicate);
 
-    CompletableResult hasSameSizeAs(ITERABLE_TYPE[] value);
+    CompletableResult<R> hasSameSizeAs(T[] value);
 
-    CompletableResult hasSize(long size);
+    CompletableResult<R> hasSize(long size);
 
-    CompletableResult hasSizeBetween(long start, long end);
+    CompletableResult<R> hasSizeBetween(long start, long end);
 
-    CompletableResult hasSizeGreaterThan(long size);
+    CompletableResult<R> hasSizeGreaterThan(long size);
 
-    CompletableResult hasSizeGreaterThanOrEqualTo(long size);
+    CompletableResult<R> hasSizeGreaterThanOrEqualTo(long size);
 
-    CompletableResult hasSizeLessThan(long size);
+    CompletableResult<R> hasSizeLessThan(long size);
 
-    CompletableResult hasSizeLessThanOrEqualTo(long size);
+    CompletableResult<R> hasSizeLessThanOrEqualTo(long size);
 
-    CompletableResult hasSizeDifferentFrom(long size);
+    CompletableResult<R> hasSizeDifferentFrom(long size);
 
 }

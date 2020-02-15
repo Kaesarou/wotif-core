@@ -6,68 +6,68 @@ import org.wotif.core.api.condition.ICondition;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public interface IMapCondition<KEY, VALUE> extends ICondition<Map<KEY, VALUE>> {
+public interface IMapCondition<K, V, R> extends ICondition<Map<K, V>, R> {
 
-    CompletableResult contains(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> contains(Map.Entry<K, V>... values);
 
-    CompletableResult doesNotContains(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> doesNotContains(Map.Entry<K, V>... values);
 
-    CompletableResult containsKeys(KEY... values);
+    CompletableResult<R> containsKeys(K... values);
 
-    CompletableResult doesNotContainsKeys(KEY... values);
+    CompletableResult<R> doesNotContainsKeys(K... values);
 
-    CompletableResult containsValues(VALUE... values);
+    CompletableResult<R> containsValues(V... values);
 
-    CompletableResult doesNotContainsValues(VALUE... values);
+    CompletableResult<R> doesNotContainsValues(V... values);
 
-    CompletableResult containsAllEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> containsAllEntriesOf(Map<K, V> values);
 
-    CompletableResult doesNotContainsAllEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> doesNotContainsAllEntriesOf(Map<K, V> values);
 
-    CompletableResult containsAnyOf(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> containsAnyOf(Map.Entry<K, V>... values);
 
-    CompletableResult doesNotContainsAnyOf(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> doesNotContainsAnyOf(Map.Entry<K, V>... values);
 
-    CompletableResult containsAnyEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> containsAnyEntriesOf(Map<K, V> values);
 
-    CompletableResult containsNoneEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> containsNoneEntriesOf(Map<K, V> values);
 
-    CompletableResult containsOnly(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> containsOnly(Map.Entry<K, V>... values);
 
-    CompletableResult doesNotContainsOnly(Map.Entry<KEY, VALUE>... values);
+    CompletableResult<R> doesNotContainsOnly(Map.Entry<K, V>... values);
 
-    CompletableResult containsOnlyEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> containsOnlyEntriesOf(Map<K, V> values);
 
-    CompletableResult doesNotContainsOnlyEntriesOf(Map<KEY, VALUE> values);
+    CompletableResult<R> doesNotContainsOnlyEntriesOf(Map<K, V> values);
 
-    CompletableResult containsOnlyOnceValues(VALUE... values);
+    CompletableResult<R> containsOnlyOnceValues(V... values);
 
-    CompletableResult containsMoreThanOnceValues(VALUE... values);
+    CompletableResult<R> containsMoreThanOnceValues(V... values);
 
-    CompletableResult isEmpty();
+    CompletableResult<R> isEmpty();
 
-    CompletableResult isNotEmpty();
+    CompletableResult<R> isNotEmpty();
 
-    CompletableResult hasAnyValuesOfTypes(Class<?>... values);
+    CompletableResult<R> hasAnyValuesOfTypes(Class<?>... values);
 
-    CompletableResult doesNotHasAnyValuesOfTypes(Class<?>... values);
+    CompletableResult<R> doesNotHasAnyValuesOfTypes(Class<?>... values);
 
-    CompletableResult containsNullValues();
+    CompletableResult<R> containsNullValues();
 
-    CompletableResult doesNotContainsNullValues();
+    CompletableResult<R> doesNotContainsNullValues();
 
-    CompletableResult containsOnlyNullValues();
+    CompletableResult<R> containsOnlyNullValues();
 
-    CompletableResult doesNotContainsOnlyNullValues();
+    CompletableResult<R> doesNotContainsOnlyNullValues();
 
-    CompletableResult hasDuplicateValues();
+    CompletableResult<R> hasDuplicateValues();
 
-    CompletableResult doesNotHasDuplicateValues();
+    CompletableResult<R> doesNotHasDuplicateValues();
 
-    CompletableResult anyValuesMatch(Predicate<VALUE> predicate);
+    CompletableResult<R> anyValuesMatch(Predicate<V> predicate);
 
-    CompletableResult allValuesMatch(Predicate<VALUE> predicate);
+    CompletableResult<R> allValuesMatch(Predicate<V> predicate);
 
-    CompletableResult noneValuesMatch(Predicate<VALUE> predicate);
+    CompletableResult<R> noneValuesMatch(Predicate<V> predicate);
 
 }

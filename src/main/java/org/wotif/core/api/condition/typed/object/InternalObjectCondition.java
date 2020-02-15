@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-class InternalObjectCondition<TYPE> {
+class InternalObjectCondition<T> {
 
-    Term<TYPE> term;
+    Term<T> term;
 
-    InternalObjectCondition(Term<TYPE> term) {
+    InternalObjectCondition(Term<T> term) {
         this.term = term;
     }
 

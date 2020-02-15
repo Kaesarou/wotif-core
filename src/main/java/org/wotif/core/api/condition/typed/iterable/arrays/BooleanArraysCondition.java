@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BooleanArraysCondition extends AbstractIterableCondition<Boolean, boolean[]>
-        implements IIterableCondition<Boolean, boolean[]> {
+        implements IIterableCondition<Boolean, boolean[], boolean[]> {
 
     public BooleanArraysCondition(boolean[] term) {
         super(term);

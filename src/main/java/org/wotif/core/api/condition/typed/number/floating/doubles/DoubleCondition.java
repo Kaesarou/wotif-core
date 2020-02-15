@@ -4,7 +4,7 @@ import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.typed.number.floating.FloatingCondition;
 import org.wotif.core.api.condition.typed.number.floating.IFloatingCondition;
 
-public class DoubleCondition extends FloatingCondition<Double> implements IFloatingCondition<Double> {
+public class DoubleCondition extends FloatingCondition<Double> implements IFloatingCondition<Double, Double> {
 
     public DoubleCondition(Double term) {
         super(term);
@@ -21,22 +21,22 @@ public class DoubleCondition extends FloatingCondition<Double> implements IFloat
     }
 
     @Override
-    public CompletableResult isNumber() {
-        return new CompletableResult(!this.term.value().isNaN());
+    public CompletableResult<Double> isNumber() {
+        return new CompletableResult<>(term, !this.term.value().isNaN());
     }
 
     @Override
-    public CompletableResult isNaN() {
-        return new CompletableResult(this.term.value().isNaN());
+    public CompletableResult<Double> isNaN() {
+        return new CompletableResult<>(term, this.term.value().isNaN());
     }
 
     @Override
-    public CompletableResult isInfinite() {
-        return new CompletableResult(this.term.value().isInfinite());
+    public CompletableResult<Double> isInfinite() {
+        return new CompletableResult<>(term, this.term.value().isInfinite());
     }
 
     @Override
-    public CompletableResult isFinite() {
-        return new CompletableResult(!this.term.value().isInfinite());
+    public CompletableResult<Double> isFinite() {
+        return new CompletableResult<>(term, !this.term.value().isInfinite());
     }
 }

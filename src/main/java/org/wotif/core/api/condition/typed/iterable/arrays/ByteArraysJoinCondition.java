@@ -4,8 +4,10 @@ import org.wotif.core.api.condition.JoinEnum;
 import org.wotif.core.api.condition.typed.iterable.AbstractIterableJoinCondition;
 import org.wotif.core.api.condition.typed.iterable.IIterableCondition;
 
+import java.util.List;
+
 public class ByteArraysJoinCondition extends AbstractIterableJoinCondition<Byte, byte[]>
-        implements IIterableCondition<Byte, byte[]> {
+        implements IIterableCondition<Byte, byte[], List<byte[]>> {
 
     public ByteArraysJoinCondition(JoinEnum joinType, byte[]... terms) {
         super(joinType, terms);

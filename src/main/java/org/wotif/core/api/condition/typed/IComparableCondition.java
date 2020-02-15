@@ -3,23 +3,23 @@ package org.wotif.core.api.condition.typed;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.ICondition;
 
-public interface IComparableCondition<COMPARABLE_TYPE extends Comparable<COMPARABLE_TYPE>>
-        extends ICondition<COMPARABLE_TYPE> {
+public interface IComparableCondition<T extends Comparable<T>, R>
+        extends ICondition<T, R> {
 
-    CompletableResult isLessThen(COMPARABLE_TYPE termToCompare);
+    CompletableResult<R> isLessThen(T termToCompare);
 
-    CompletableResult isGreaterThen(COMPARABLE_TYPE termToCompare);
+    CompletableResult<R> isGreaterThen(T termToCompare);
 
-    CompletableResult isBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end);
+    CompletableResult<R> isBetween(T start, T end);
 
-    CompletableResult isNotBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end);
+    CompletableResult<R> isNotBetween(T start, T end);
 
-    CompletableResult isStrictlyBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end);
-
-    @Override
-    CompletableResult isEqualTo(COMPARABLE_TYPE expected);
+    CompletableResult<R> isStrictlyBetween(T start, T end);
 
     @Override
-    CompletableResult isDifferentFrom(COMPARABLE_TYPE expected);
+    CompletableResult<R> isEqualTo(T expected);
+
+    @Override
+    CompletableResult<R> isDifferentFrom(T expected);
 
 }

@@ -3,19 +3,19 @@ package org.wotif.core.api.condition.typed.number.floating;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.typed.number.INumberCondition;
 
-public interface IFloatingCondition<FLOATING extends Number & Comparable<FLOATING>>
-        extends INumberCondition<FLOATING> {
+public interface IFloatingCondition<F extends Number & Comparable<F>, R>
+        extends INumberCondition<F, R> {
 
-    CompletableResult isCloseTo(Integer expected);
+    CompletableResult<R> isCloseTo(Integer expected);
 
-    CompletableResult isNotCloseTo(Integer expected);
+    CompletableResult<R> isNotCloseTo(Integer expected);
 
-    CompletableResult isNumber();
+    CompletableResult<R> isNumber();
 
-    CompletableResult isNaN();
+    CompletableResult<R> isNaN();
 
-    CompletableResult isInfinite();
+    CompletableResult<R> isInfinite();
 
-    CompletableResult isFinite();
+    CompletableResult<R> isFinite();
 
 }

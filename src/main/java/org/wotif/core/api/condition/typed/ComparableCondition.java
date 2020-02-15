@@ -3,56 +3,56 @@ package org.wotif.core.api.condition.typed;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.AbstractCondition;
 
-public abstract class ComparableCondition<COMPARABLE_TYPE extends Comparable<COMPARABLE_TYPE>>
-        extends AbstractCondition<COMPARABLE_TYPE> implements IComparableCondition<COMPARABLE_TYPE> {
+public abstract class ComparableCondition<T extends Comparable<T>>
+        extends AbstractCondition<T> implements IComparableCondition<T, T> {
 
-    public ComparableCondition(COMPARABLE_TYPE term) {
+    public ComparableCondition(T term) {
         super(term);
     }
 
     @Override
-    public CompletableResult isLessThen(COMPARABLE_TYPE termToCompare) {
+    public CompletableResult<T> isLessThen(T termToCompare) {
         int i = term.value().compareTo(termToCompare);
-        return new CompletableResult(i < 0);
+        return new CompletableResult<>(term, i < 0);
     }
 
     @Override
-    public CompletableResult isGreaterThen(COMPARABLE_TYPE termToCompare) {
+    public CompletableResult<T> isGreaterThen(T termToCompare) {
         int i = term.value().compareTo(termToCompare);
-        return new CompletableResult(i > 0);
+        return new CompletableResult<>(term, i > 0);
     }
 
     @Override
-    public CompletableResult isEqualTo(COMPARABLE_TYPE expected) {
+    public CompletableResult<T> isEqualTo(T expected) {
         int i = term.value().compareTo(expected);
-        return new CompletableResult(i == 0);
+        return new CompletableResult<>(term, i == 0);
     }
 
     @Override
-    public CompletableResult isDifferentFrom(COMPARABLE_TYPE expected) {
+    public CompletableResult<T> isDifferentFrom(T expected) {
         int i = term.value().compareTo(expected);
-        return new CompletableResult(i != 0);
+        return new CompletableResult<>(term, i != 0);
     }
 
     @Override
-    public CompletableResult isBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end) {
+    public CompletableResult<T> isBetween(T start, T end) {
         int i = term.value().compareTo(start);
         int j = term.value().compareTo(end);
-        return new CompletableResult(i >= 0 && j <= 0);
+        return new CompletableResult<>(term, i >= 0 && j <= 0);
     }
 
     @Override
-    public CompletableResult isNotBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end) {
+    public CompletableResult<T> isNotBetween(T start, T end) {
         int i = term.value().compareTo(start);
         int j = term.value().compareTo(end);
-        return new CompletableResult(i < 0 || j > 0);
+        return new CompletableResult<>(term, i < 0 || j > 0);
     }
 
     @Override
-    public CompletableResult isStrictlyBetween(COMPARABLE_TYPE start, COMPARABLE_TYPE end) {
+    public CompletableResult<T> isStrictlyBetween(T start, T end) {
         int i = term.value().compareTo(start);
         int j = term.value().compareTo(end);
-        return new CompletableResult(i > 0 && j < 0);
+        return new CompletableResult<>(term, i > 0 && j < 0);
     }
 
 }

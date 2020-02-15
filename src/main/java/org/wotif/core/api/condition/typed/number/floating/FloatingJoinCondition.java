@@ -4,42 +4,44 @@ import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.JoinEnum;
 import org.wotif.core.api.condition.typed.number.AbstractNumberJoinCondition;
 
-public abstract class FloatingJoinCondition<FLOATING extends Number & Comparable<FLOATING>>
-        extends AbstractNumberJoinCondition<FLOATING, FloatingCondition<FLOATING>>
-        implements IFloatingCondition<FLOATING> {
+import java.util.List;
+
+public abstract class FloatingJoinCondition<F extends Number & Comparable<F>>
+        extends AbstractNumberJoinCondition<F, FloatingCondition<F>>
+        implements IFloatingCondition<F, List<F>> {
 
     @SafeVarargs
-    public FloatingJoinCondition(JoinEnum joinType, FLOATING... terms) {
+    public FloatingJoinCondition(JoinEnum joinType, F... terms) {
         super(joinType, terms);
     }
-    
+
     @Override
-    public CompletableResult isCloseTo(Integer expected) {
+    public CompletableResult<List<F>> isCloseTo(Integer expected) {
         return this.functionToApply.apply(n -> n.isCloseTo(expected));
     }
 
     @Override
-    public CompletableResult isNotCloseTo(Integer expected) {
+    public CompletableResult<List<F>> isNotCloseTo(Integer expected) {
         return this.functionToApply.apply(n -> n.isNotCloseTo(expected));
     }
 
     @Override
-    public CompletableResult isNumber() {
+    public CompletableResult<List<F>> isNumber() {
         return this.functionToApply.apply(IFloatingCondition::isNumber);
     }
 
     @Override
-    public CompletableResult isNaN() {
+    public CompletableResult<List<F>> isNaN() {
         return this.functionToApply.apply(IFloatingCondition::isNaN);
     }
 
     @Override
-    public CompletableResult isInfinite() {
+    public CompletableResult<List<F>> isInfinite() {
         return this.functionToApply.apply(IFloatingCondition::isInfinite);
     }
 
     @Override
-    public CompletableResult isFinite() {
+    public CompletableResult<List<F>> isFinite() {
         return this.functionToApply.apply(IFloatingCondition::isFinite);
     }
 

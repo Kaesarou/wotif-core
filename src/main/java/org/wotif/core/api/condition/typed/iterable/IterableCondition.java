@@ -1,14 +1,14 @@
 package org.wotif.core.api.condition.typed.iterable;
 
-public class IterableCondition<ITERABLE_TYPE> extends AbstractIterableCondition<ITERABLE_TYPE, Iterable<ITERABLE_TYPE>>
-        implements IIterableCondition<ITERABLE_TYPE, Iterable<ITERABLE_TYPE>> {
+public class IterableCondition<T> extends AbstractIterableCondition<T, Iterable<T>>
+        implements IIterableCondition<T, Iterable<T>, Iterable<T>> {
 
-    public IterableCondition(Iterable<ITERABLE_TYPE> term) {
+    public IterableCondition(Iterable<T> term) {
         super(term);
     }
 
     @Override
-    protected Iterable<ITERABLE_TYPE> iterable() {
+    protected Iterable<T> iterable() {
         return this.term.value();
     }
 

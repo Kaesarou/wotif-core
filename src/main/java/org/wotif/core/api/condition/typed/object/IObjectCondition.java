@@ -3,22 +3,22 @@ package org.wotif.core.api.condition.typed.object;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.ICondition;
 
-public interface IObjectCondition<TYPE> extends ICondition<TYPE> {
+public interface IObjectCondition<T, R> extends ICondition<T, R> {
 
-    CompletableResult hasNullProperties();
+    CompletableResult<R> hasNullProperties();
 
-    CompletableResult doesNotHasNullProperties();
+    CompletableResult<R> doesNotHasNullProperties();
 
-    CompletableResult hasAllNullProperties();
+    CompletableResult<R> hasAllNullProperties();
 
-    CompletableResult hasNoNullProperties();
+    CompletableResult<R> hasNoNullProperties();
 
-    CompletableResult hasProperty(String name);
+    CompletableResult<R> hasProperty(String name);
 
-    CompletableResult doesNotHasProperty(String name);
+    CompletableResult<R> doesNotHasProperty(String name);
 
-    CompletableResult hasPropertyWithValue(String propertyName, Object propertyValue);
+    CompletableResult<R> hasPropertyWithValue(String propertyName, Object propertyValue);
 
-    CompletableResult doesNotHasPropertyWithValue(String propertyName, Object propertyValue);
+    CompletableResult<R> doesNotHasPropertyWithValue(String propertyName, Object propertyValue);
 
 }

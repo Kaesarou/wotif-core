@@ -4,116 +4,116 @@ import org.apache.commons.lang3.StringUtils;
 import org.wotif.core.api.CompletableResult;
 import org.wotif.core.api.condition.typed.ComparableCondition;
 
-public class StringCondition extends ComparableCondition<String> implements IStringCondition {
+public class StringCondition extends ComparableCondition<String> implements IStringCondition<String> {
 
     public StringCondition(String term) {
         super(term);
     }
 
     @Override
-    public CompletableResult contains(String contains) {
+    public CompletableResult<String> contains(String contains) {
         boolean value = this.term.value().contains(contains);
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult containsIgnoringCase(String contains) {
+    public CompletableResult<String> containsIgnoringCase(String contains) {
         boolean value = StringUtils.containsIgnoreCase(this.term.value(), contains);
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult notContains(String notContains) {
+    public CompletableResult<String> notContains(String notContains) {
         boolean value = !this.term.value().contains(notContains);
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isEmpty() {
+    public CompletableResult<String> isEmpty() {
         boolean value = this.term.value().isEmpty();
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotEmpty() {
+    public CompletableResult<String> isNotEmpty() {
         boolean value = !this.term.value().isEmpty();
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isContainedIn(String stringContainer) {
+    public CompletableResult<String> isContainedIn(String stringContainer) {
         boolean value = stringContainer.contains(this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotContainedIn(String stringContainer) {
+    public CompletableResult<String> isNotContainedIn(String stringContainer) {
         boolean value = !stringContainer.contains(this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isContainedInIgnoreCase(String stringContainer) {
+    public CompletableResult<String> isContainedInIgnoreCase(String stringContainer) {
         boolean value = StringUtils.containsIgnoreCase(stringContainer, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotContainedInIgnoreCase(String stringContainer) {
+    public CompletableResult<String> isNotContainedInIgnoreCase(String stringContainer) {
         boolean value = !StringUtils.containsIgnoreCase(stringContainer, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isContainedInSubstring(String stringContainer, String start, String end) {
+    public CompletableResult<String> isContainedInSubstring(String stringContainer, String start, String end) {
         String substring = StringUtils.substringBetween(stringContainer, start, end);
         boolean value = StringUtils.contains(substring, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isContainedInSubstringIgnoreCase(String stringContainer, String start, String end) {
+    public CompletableResult<String> isContainedInSubstringIgnoreCase(String stringContainer, String start, String end) {
         String substring = StringUtils.substringBetween(stringContainer.toLowerCase(), start.toLowerCase(), end.toLowerCase());
         boolean value = StringUtils.containsIgnoreCase(substring, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotContainedInSubstring(String stringContainer, String start, String end) {
+    public CompletableResult<String> isNotContainedInSubstring(String stringContainer, String start, String end) {
         String substring = StringUtils.substringBetween(stringContainer, start, end);
         boolean value = !StringUtils.contains(substring, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotContainedInSubstringIgnoreCase(String stringContainer, String start, String end) {
+    public CompletableResult<String> isNotContainedInSubstringIgnoreCase(String stringContainer, String start, String end) {
         String substring = StringUtils.substringBetween(stringContainer.toLowerCase(), start.toLowerCase(), end.toLowerCase());
         boolean value = !StringUtils.containsIgnoreCase(substring, this.term.value());
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isEqualToIgnoringCase(String string) {
+    public CompletableResult<String> isEqualToIgnoringCase(String string) {
         boolean value = StringUtils.equalsIgnoreCase(this.term.value(), string);
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isDifferentFromIgnoringCase(String string) {
+    public CompletableResult<String> isDifferentFromIgnoringCase(String string) {
         boolean value = !StringUtils.equalsIgnoreCase(this.term.value(), string);
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isBlank() {
+    public CompletableResult<String> isBlank() {
         boolean value = this.term.value().isBlank();
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
     @Override
-    public CompletableResult isNotBlank() {
+    public CompletableResult<String> isNotBlank() {
         boolean value = !this.term.value().isBlank();
-        return new CompletableResult(value);
+        return new CompletableResult<>(term, value);
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoubleArraysCondition extends AbstractIterableCondition<Double, double[]>
-        implements IIterableCondition<Double, double[]> {
+        implements IIterableCondition<Double, double[], double[]> {
 
     public DoubleArraysCondition(double[] term) {
         super(term);

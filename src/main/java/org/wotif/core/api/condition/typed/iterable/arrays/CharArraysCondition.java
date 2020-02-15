@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharArraysCondition extends AbstractIterableCondition<Character, char[]>
-        implements IIterableCondition<Character, char[]> {
+        implements IIterableCondition<Character, char[], char[]> {
 
     public CharArraysCondition(char[] term) {
         super(term);

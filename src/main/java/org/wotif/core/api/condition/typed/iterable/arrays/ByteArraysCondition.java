@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ByteArraysCondition extends AbstractIterableCondition<Byte, byte[]>
-        implements IIterableCondition<Byte, byte[]> {
+        implements IIterableCondition<Byte, byte[], byte[]> {
 
     public ByteArraysCondition(byte[] term) {
         super(term);

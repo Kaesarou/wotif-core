@@ -5,15 +5,15 @@ import org.wotif.core.api.condition.typed.iterable.IIterableCondition;
 
 import java.util.Arrays;
 
-public class ArraysCondition<ITERABLE_TYPE> extends AbstractIterableCondition<ITERABLE_TYPE, ITERABLE_TYPE[]>
-        implements IIterableCondition<ITERABLE_TYPE, ITERABLE_TYPE[]> {
+public class ArraysCondition<T> extends AbstractIterableCondition<T, T[]>
+        implements IIterableCondition<T, T[], T[]> {
 
-    public ArraysCondition(ITERABLE_TYPE[] term) {
+    public ArraysCondition(T[] term) {
         super(term);
     }
 
     @Override
-    protected Iterable<ITERABLE_TYPE> iterable() {
+    protected Iterable<T> iterable() {
         return Arrays.asList(this.term.value());
     }
 

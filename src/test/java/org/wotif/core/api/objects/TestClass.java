@@ -14,4 +14,7 @@ public class TestClass {
         this.property_3 = property_3;
     }
 
+    public String getProperty_1() {
+        return property_1;
+    }
 }

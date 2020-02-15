@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class IntArraysCondition extends AbstractIterableCondition<Integer, int[]>
-        implements IIterableCondition<Integer, int[]> {
+        implements IIterableCondition<Integer, int[], int[]> {
 
     public IntArraysCondition(int[] term) {
         super(term);

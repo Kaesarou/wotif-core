@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LongArraysCondition extends AbstractIterableCondition<Long, long[]>
-        implements IIterableCondition<Long, long[]> {
+        implements IIterableCondition<Long, long[], long[]> {
 
     public LongArraysCondition(long[] term) {
         super(term);

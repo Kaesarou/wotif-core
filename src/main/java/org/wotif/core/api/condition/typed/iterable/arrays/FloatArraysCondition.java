@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FloatArraysCondition extends AbstractIterableCondition<Float, float[]>
-        implements IIterableCondition<Float, float[]> {
+        implements IIterableCondition<Float, float[], float[]> {
 
     public FloatArraysCondition(float[] term) {
         super(term);

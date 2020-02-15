@@ -9,8 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import static org.wotif.core.api.Conditions.when;
-import static org.wotif.core.api.Conditions.whenAnyOf;
+import static org.wotif.core.api.Conditions.*;
 
 public class IterablesConditionTest {
 

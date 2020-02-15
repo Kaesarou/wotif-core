@@ -3,30 +3,30 @@ package org.wotif.core.api.condition;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.wotif.core.api.CompletableResult;
 
-public interface ICondition<TYPE> {
+public interface ICondition<T, R> {
 
-    CompletableResult isEqualTo(TYPE expected);
+    CompletableResult<R> isEqualTo(T expected);
 
-    CompletableResult isDifferentFrom(TYPE expected);
+    CompletableResult<R> isDifferentFrom(T expected);
 
-    CompletableResult isNull();
+    CompletableResult<R> isNull();
 
-    CompletableResult isNotNull();
+    CompletableResult<R> isNotNull();
 
-    CompletableResult isInstanceOf(Class<?> className);
+    CompletableResult<R> isInstanceOf(Class<?> className);
 
-    CompletableResult isNotInstanceOf(Class<?> className);
+    CompletableResult<R> isNotInstanceOf(Class<?> className);
 
-    CompletableResult hasSameClassAs(@NonNull Object other);
+    CompletableResult<R> hasSameClassAs(@NonNull Object other);
 
-    CompletableResult doesNotHasSameClassAs(@NonNull Object other);
+    CompletableResult<R> doesNotHasSameClassAs(@NonNull Object other);
 
-    CompletableResult hasSameHashCodeAs(@NonNull Object other);
+    CompletableResult<R> hasSameHashCodeAs(@NonNull Object other);
 
-    CompletableResult doesNotHasSameHashCodeAs(@NonNull Object other);
+    CompletableResult<R> doesNotHasSameHashCodeAs(@NonNull Object other);
 
-    CompletableResult hasToString(String expectedToString);
+    CompletableResult<R> hasToString(String expectedToString);
 
-    CompletableResult doesNotHasToString(String expectedToString);
+    CompletableResult<R> doesNotHasToString(String expectedToString);
 
 }
