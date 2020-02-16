@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public abstract class AbstractIterableCondition<T, I> extends AbstractCondition<I>
         implements IIterableCondition<T, I, I> {
 
-    InternalIterableConditions<T> internalIterables;
+    protected InternalIterableConditions<T> internalIterables;
 
     abstract protected Iterable<T> iterable();
 
