@@ -1,6 +1,7 @@
 package org.wotif.core.api;
 
 import io.vavr.control.Option;
+import org.wotif.core.api.controls.MapControl;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -34,9 +35,10 @@ public class Result<T> {
         return new InstructionsBlock<>(instructions);
     }
 
-    public <U> U map(Function<? super T, ? extends U> mapper) {
-        Option<T> term = Option.of(this.term.value());
-        return term.map(mapper).get();
+    public <R> MapControl<T, R> map(Function<? super T, ? extends R> mapper) {
+        if (this.value)
+            return new MapControl<>(Option.of(term.value()), mapper);
+        return new MapControl<>(Option.of(term.value()), null);
     }
 
 }

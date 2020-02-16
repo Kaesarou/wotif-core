@@ -73,12 +73,12 @@ public class ObjectConditionTest {
     public void testIfContainsPropertyThenMap() {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
-        String result = when(objectToTest_1).hasProperty("property_1").map(TestClass::getProperty_1);
+        String result = when(objectToTest_1).hasProperty("property_1").map(TestClass::getProperty_1).end();
         List<Integer> list = whenAllOf(1, 2, 3).isPositive().map(l -> {
-            List<Integer> li = new ArrayList<>(l);
-            li.add(4);
-            return li;
-        });
+            List<Integer> newList = new ArrayList<>(l);
+            newList.add(4);
+            return newList;
+        }).end();
 
         Assertions.assertThat(result).isEqualTo("test");
         Assertions.assertThat(list).contains(1,2,3,4);
