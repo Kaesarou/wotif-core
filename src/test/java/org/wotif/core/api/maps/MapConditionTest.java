@@ -19,7 +19,7 @@ public class MapConditionTest {
         Map.Entry<String, String> e1 = Map.entry("a", "1");
         Map.Entry<String, String> e2 = Map.entry("b", "2");
 
-        Integer result = when(mapToTest).contains(e1, e2).then(() -> 1).end();
+        Integer result = when(mapToTest).contains(e1, e2).then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -38,7 +38,7 @@ public class MapConditionTest {
         Map.Entry<String, String> e1 = Map.entry("a", "1");
         Map.Entry<String, String> e2 = Map.entry("b", "2");
 
-        Integer result_1 = whenAllOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e1, e2).then(() -> 1).end();
+        Integer result_1 = whenAllOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e1, e2).then(t ->1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
@@ -59,10 +59,10 @@ public class MapConditionTest {
         Map.Entry<String, String> e3 = Map.entry("j", "3");
         Map.Entry<String, String> e4 = Map.entry("b", "2");
 
-        Integer result_1 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e1, e2).then(() -> 1).end();
-        Integer result_2 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e3, e4).then(() -> 1)
-                .orElse(() -> 0).end();
-        Integer result_3 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e3).then(() -> 1).end();
+        Integer result_1 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e1, e2).then(t ->1).end();
+        Integer result_2 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e3, e4).then(t ->1)
+                .orElse(t ->0).end();
+        Integer result_3 = whenAnyOf(mapToTest_1, mapToTest_2, mapToTest_3).contains(e3).then(t ->1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
         Assertions.assertThat(result_2).isEqualTo(0);
@@ -79,7 +79,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).contains(e1)
                 .and(when(mapToTest).doesNotContains(e2))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -95,7 +95,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsKeys(k_1, k_2)
                 .and(when(mapToTest).doesNotContainsKeys(k_3))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -111,7 +111,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsValues(k_1, k_2)
                 .and(when(mapToTest).doesNotContainsValues(k_3))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -130,7 +130,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsAllEntriesOf(m_1)
                 .and(when(mapToTest).doesNotContainsAllEntriesOf(m_2))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -145,7 +145,7 @@ public class MapConditionTest {
         Map.Entry<String, String> e3 = Map.entry("f", "1");
 
         Integer result = when(mapToTest).containsAnyOf(e1, e2)
-                .and(when(mapToTest).doesNotContainsAnyOf(e2, e3)).then(() -> 1).end();
+                .and(when(mapToTest).doesNotContainsAnyOf(e2, e3)).then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -164,7 +164,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsAnyEntriesOf(m_1)
                 .and(when(mapToTest).containsNoneEntriesOf(m_2))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -181,7 +181,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsOnly(e_1, e_2, e_3, e_4)
                 .and(when(mapToTest).doesNotContainsOnly(e_1, e_2, e_3))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -200,7 +200,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest).containsOnlyEntriesOf(m_1)
                 .and(when(mapToTest).doesNotContainsOnlyEntriesOf(m_2))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -216,7 +216,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest_1).containsOnlyOnceValues("1", "2", "3", "4", "5")
                 .and(when(mapToTest_2).containsMoreThanOnceValues("2"))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -230,7 +230,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest_1).isEmpty()
                 .and(when(mapToTest_2).isNotEmpty())
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -243,10 +243,10 @@ public class MapConditionTest {
 
         Integer result_1 = when(mapToTest_1).hasAnyValuesOfTypes(String.class)
                 .and(when(mapToTest_1).doesNotHasAnyValuesOfTypes(Integer.class))
-                .then(() -> 1).end();
+                .then(t ->1).end();
         Integer result_2 = when(mapToTest_1).hasAnyValuesOfTypes(Integer.class)
                 .and(when(mapToTest_1).doesNotHasAnyValuesOfTypes(String.class))
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t ->1).orElse(t ->0).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
         Assertions.assertThat(result_2).isEqualTo(0);
@@ -266,7 +266,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest_1).containsNullValues()
                 .and(when(mapToTest_2).doesNotContainsNullValues())
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -282,7 +282,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest_1).containsOnlyNullValues()
                 .and(when(mapToTest_2).doesNotContainsOnlyNullValues())
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -298,7 +298,7 @@ public class MapConditionTest {
 
         Integer result = when(mapToTest_1).hasDuplicateValues()
                 .and(when(mapToTest_2).doesNotHasDuplicateValues())
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -310,7 +310,7 @@ public class MapConditionTest {
                 .build();
 
         Integer result = when(mapToTest_1).anyValuesMatch(v -> v.equals("2"))
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -322,7 +322,7 @@ public class MapConditionTest {
                 .build();
 
         Integer result = when(mapToTest_1).allValuesMatch(v -> !v.isBlank())
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -334,7 +334,7 @@ public class MapConditionTest {
                 .build();
 
         Integer result = when(mapToTest_1).noneValuesMatch(String::isBlank)
-                .then(() -> 1).end();
+                .then(t ->1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }

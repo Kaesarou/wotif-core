@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.map;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.ICondition;
 
 import java.util.Map;
@@ -8,66 +8,66 @@ import java.util.function.Predicate;
 
 public interface IMapCondition<K, V, R> extends ICondition<Map<K, V>, R> {
 
-    CompletableResult<R> contains(Map.Entry<K, V>... values);
+    Completable<R> contains(Map.Entry<K, V>... values);
 
-    CompletableResult<R> doesNotContains(Map.Entry<K, V>... values);
+    Completable<R> doesNotContains(Map.Entry<K, V>... values);
 
-    CompletableResult<R> containsKeys(K... values);
+    Completable<R> containsKeys(K... values);
 
-    CompletableResult<R> doesNotContainsKeys(K... values);
+    Completable<R> doesNotContainsKeys(K... values);
 
-    CompletableResult<R> containsValues(V... values);
+    Completable<R> containsValues(V... values);
 
-    CompletableResult<R> doesNotContainsValues(V... values);
+    Completable<R> doesNotContainsValues(V... values);
 
-    CompletableResult<R> containsAllEntriesOf(Map<K, V> values);
+    Completable<R> containsAllEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> doesNotContainsAllEntriesOf(Map<K, V> values);
+    Completable<R> doesNotContainsAllEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> containsAnyOf(Map.Entry<K, V>... values);
+    Completable<R> containsAnyOf(Map.Entry<K, V>... values);
 
-    CompletableResult<R> doesNotContainsAnyOf(Map.Entry<K, V>... values);
+    Completable<R> doesNotContainsAnyOf(Map.Entry<K, V>... values);
 
-    CompletableResult<R> containsAnyEntriesOf(Map<K, V> values);
+    Completable<R> containsAnyEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> containsNoneEntriesOf(Map<K, V> values);
+    Completable<R> containsNoneEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> containsOnly(Map.Entry<K, V>... values);
+    Completable<R> containsOnly(Map.Entry<K, V>... values);
 
-    CompletableResult<R> doesNotContainsOnly(Map.Entry<K, V>... values);
+    Completable<R> doesNotContainsOnly(Map.Entry<K, V>... values);
 
-    CompletableResult<R> containsOnlyEntriesOf(Map<K, V> values);
+    Completable<R> containsOnlyEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> doesNotContainsOnlyEntriesOf(Map<K, V> values);
+    Completable<R> doesNotContainsOnlyEntriesOf(Map<K, V> values);
 
-    CompletableResult<R> containsOnlyOnceValues(V... values);
+    Completable<R> containsOnlyOnceValues(V... values);
 
-    CompletableResult<R> containsMoreThanOnceValues(V... values);
+    Completable<R> containsMoreThanOnceValues(V... values);
 
-    CompletableResult<R> isEmpty();
+    Completable<R> isEmpty();
 
-    CompletableResult<R> isNotEmpty();
+    Completable<R> isNotEmpty();
 
-    CompletableResult<R> hasAnyValuesOfTypes(Class<?>... values);
+    Completable<R> hasAnyValuesOfTypes(Class<?>... values);
 
-    CompletableResult<R> doesNotHasAnyValuesOfTypes(Class<?>... values);
+    Completable<R> doesNotHasAnyValuesOfTypes(Class<?>... values);
 
-    CompletableResult<R> containsNullValues();
+    Completable<R> containsNullValues();
 
-    CompletableResult<R> doesNotContainsNullValues();
+    Completable<R> doesNotContainsNullValues();
 
-    CompletableResult<R> containsOnlyNullValues();
+    Completable<R> containsOnlyNullValues();
 
-    CompletableResult<R> doesNotContainsOnlyNullValues();
+    Completable<R> doesNotContainsOnlyNullValues();
 
-    CompletableResult<R> hasDuplicateValues();
+    Completable<R> hasDuplicateValues();
 
-    CompletableResult<R> doesNotHasDuplicateValues();
+    Completable<R> doesNotHasDuplicateValues();
 
-    CompletableResult<R> anyValuesMatch(Predicate<V> predicate);
+    Completable<R> anyValuesMatch(Predicate<V> predicate);
 
-    CompletableResult<R> allValuesMatch(Predicate<V> predicate);
+    Completable<R> allValuesMatch(Predicate<V> predicate);
 
-    CompletableResult<R> noneValuesMatch(Predicate<V> predicate);
+    Completable<R> noneValuesMatch(Predicate<V> predicate);
 
 }

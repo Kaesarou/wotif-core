@@ -1,100 +1,100 @@
 package org.wotif.core.api.condition.typed.iterable;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.ICondition;
 
 import java.util.function.Predicate;
 
 public interface IIterableCondition<T,I, R> extends ICondition<I, R> {
 
-    CompletableResult<R> contains(T... values);
+    Completable<R> contains(T... values);
 
-    CompletableResult<R> doesNotContains(T... values);
+    Completable<R> doesNotContains(T... values);
 
-    CompletableResult<R> contains(Iterable<T> values);
+    Completable<R> contains(Iterable<T> values);
 
-    CompletableResult<R> doesNotContains(Iterable<T> values);
+    Completable<R> doesNotContains(Iterable<T> values);
 
-    CompletableResult<R> containsAnyOf(T... values);
+    Completable<R> containsAnyOf(T... values);
 
-    CompletableResult<R> containsAnyOf(Iterable<T> values);
+    Completable<R> containsAnyOf(Iterable<T> values);
 
-    CompletableResult<R> containsOnly(T... values);
+    Completable<R> containsOnly(T... values);
 
-    CompletableResult<R> containsOnly(Iterable<T> values);
+    Completable<R> containsOnly(Iterable<T> values);
 
-    CompletableResult<R> doesNotContainsOnly(T... values);
+    Completable<R> doesNotContainsOnly(T... values);
 
-    CompletableResult<R> doesNotContainsOnly(Iterable<T> values);
+    Completable<R> doesNotContainsOnly(Iterable<T> values);
 
-    CompletableResult<R> containsOnlyOnce(T... values);
+    Completable<R> containsOnlyOnce(T... values);
 
-    CompletableResult<R> containsOnlyOnce(Iterable<T> values);
+    Completable<R> containsOnlyOnce(Iterable<T> values);
 
-    CompletableResult<R> containsMoreThanOnce(T... values);
+    Completable<R> containsMoreThanOnce(T... values);
 
-    CompletableResult<R> containsMoreThanOnce(Iterable<T> values);
+    Completable<R> containsMoreThanOnce(Iterable<T> values);
 
-    CompletableResult<R> startsWith(T value);
+    Completable<R> startsWith(T value);
 
-    CompletableResult<R> doesNotStartsWith(T value);
+    Completable<R> doesNotStartsWith(T value);
 
-    CompletableResult<R> endsWith(T value);
+    Completable<R> endsWith(T value);
 
-    CompletableResult<R> doesNotEndsWith(T value);
+    Completable<R> doesNotEndsWith(T value);
 
-    CompletableResult<R> isSubsetOf(T... values);
+    Completable<R> isSubsetOf(T... values);
 
-    CompletableResult<R> isSubsetOf(Iterable<T> values);
+    Completable<R> isSubsetOf(Iterable<T> values);
 
-    CompletableResult<R> isNotSubsetOf(T... values);
+    Completable<R> isNotSubsetOf(T... values);
 
-    CompletableResult<R> isNotSubsetOf(Iterable<T> values);
+    Completable<R> isNotSubsetOf(Iterable<T> values);
 
-    CompletableResult<R> isEmpty();
+    Completable<R> isEmpty();
 
-    CompletableResult<R> isNotEmpty();
+    Completable<R> isNotEmpty();
 
-    CompletableResult<R> doesNotHasAnyElementsOfTypes(Class<?>... values);
+    Completable<R> doesNotHasAnyElementsOfTypes(Class<?>... values);
 
-    CompletableResult<R> doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values);
+    Completable<R> doesNotHasAnyElementsOfTypes(Iterable<Class<?>> values);
 
-    CompletableResult<R> hasAnyElementsOfTypes(Class<?>... values);
+    Completable<R> hasAnyElementsOfTypes(Class<?>... values);
 
-    CompletableResult<R> hasAnyElementsOfTypes(Iterable<Class<?>> values);
+    Completable<R> hasAnyElementsOfTypes(Iterable<Class<?>> values);
 
-    CompletableResult<R> doesNotContainsNull();
+    Completable<R> doesNotContainsNull();
 
-    CompletableResult<R> containsNull();
+    Completable<R> containsNull();
 
-    CompletableResult<R> containsOnlyNull();
+    Completable<R> containsOnlyNull();
 
-    CompletableResult<R> doesNotContainsOnlyNull();
+    Completable<R> doesNotContainsOnlyNull();
 
-    CompletableResult<R> hasDuplicate();
+    Completable<R> hasDuplicate();
 
-    CompletableResult<R> doesNotHasDuplicate();
+    Completable<R> doesNotHasDuplicate();
 
-    CompletableResult<R> anyMatch(Predicate<? super T> predicate);
+    Completable<R> anyMatch(Predicate<? super T> predicate);
 
-    CompletableResult<R> allMatch(Predicate<? super T> predicate);
+    Completable<R> allMatch(Predicate<? super T> predicate);
 
-    CompletableResult<R> noneMatch(Predicate<? super T> predicate);
+    Completable<R> noneMatch(Predicate<? super T> predicate);
 
-    CompletableResult<R> hasSameSizeAs(T[] value);
+    Completable<R> hasSameSizeAs(T[] value);
 
-    CompletableResult<R> hasSize(long size);
+    Completable<R> hasSize(long size);
 
-    CompletableResult<R> hasSizeBetween(long start, long end);
+    Completable<R> hasSizeBetween(long start, long end);
 
-    CompletableResult<R> hasSizeGreaterThan(long size);
+    Completable<R> hasSizeGreaterThan(long size);
 
-    CompletableResult<R> hasSizeGreaterThanOrEqualTo(long size);
+    Completable<R> hasSizeGreaterThanOrEqualTo(long size);
 
-    CompletableResult<R> hasSizeLessThan(long size);
+    Completable<R> hasSizeLessThan(long size);
 
-    CompletableResult<R> hasSizeLessThanOrEqualTo(long size);
+    Completable<R> hasSizeLessThanOrEqualTo(long size);
 
-    CompletableResult<R> hasSizeDifferentFrom(long size);
+    Completable<R> hasSizeDifferentFrom(long size);
 
 }

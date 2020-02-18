@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.booleans;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.AbstractJoinCondition;
 import org.wotif.core.api.condition.JoinEnum;
 
@@ -19,12 +19,12 @@ public class BooleanJoinCondition extends AbstractJoinCondition<Boolean, Boolean
     }
 
     @Override
-    public CompletableResult<List<Boolean>> isTrue() {
+    public Completable<List<Boolean>> isTrue() {
         return this.functionToApply.apply(BooleanCondition::isTrue);
     }
 
     @Override
-    public CompletableResult<List<Boolean>> isFalse() {
+    public Completable<List<Boolean>> isFalse() {
         return this.functionToApply.apply(BooleanCondition::isFalse);
     }
 

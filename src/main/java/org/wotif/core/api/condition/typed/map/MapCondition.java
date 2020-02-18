@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.map;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.AbstractCondition;
 
 import java.util.Map;
@@ -17,200 +17,200 @@ public class MapCondition<K, V> extends AbstractCondition<Map<K, V>> implements 
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> contains(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> contains(Map.Entry<K, V>... values) {
         boolean result = this.internalMapCondition.contains(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> doesNotContains(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> doesNotContains(Map.Entry<K, V>... values) {
         boolean result = !this.internalMapCondition.contains(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsKeys(K... values) {
+    final public Completable<Map<K, V>> containsKeys(K... values) {
         boolean result = this.internalMapCondition.containsKeys(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> doesNotContainsKeys(K... values) {
+    final public Completable<Map<K, V>> doesNotContainsKeys(K... values) {
         boolean result = !this.internalMapCondition.containsKeys(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsValues(V... values) {
+    final public Completable<Map<K, V>> containsValues(V... values) {
         boolean result = this.internalMapCondition.containsValues(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> doesNotContainsValues(V... values) {
+    final public Completable<Map<K, V>> doesNotContainsValues(V... values) {
         boolean result = !this.internalMapCondition.containsValues(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsAllEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> containsAllEntriesOf(Map<K, V> values) {
         boolean result = this.internalMapCondition.containsAllEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotContainsAllEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> doesNotContainsAllEntriesOf(Map<K, V> values) {
         boolean result = !this.internalMapCondition.containsAllEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsAnyOf(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> containsAnyOf(Map.Entry<K, V>... values) {
         boolean result = this.internalMapCondition.containsAnyOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> doesNotContainsAnyOf(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> doesNotContainsAnyOf(Map.Entry<K, V>... values) {
         boolean result = !this.internalMapCondition.containsAnyOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsAnyEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> containsAnyEntriesOf(Map<K, V> values) {
         boolean result = this.internalMapCondition.containsAnyEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsNoneEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> containsNoneEntriesOf(Map<K, V> values) {
         boolean result = !this.internalMapCondition.containsAnyEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsOnly(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> containsOnly(Map.Entry<K, V>... values) {
         boolean result = this.internalMapCondition.containsOnly(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> doesNotContainsOnly(Map.Entry<K, V>... values) {
+    final public Completable<Map<K, V>> doesNotContainsOnly(Map.Entry<K, V>... values) {
         boolean result = this.internalMapCondition.doesNotContainsOnly(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsOnlyEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> containsOnlyEntriesOf(Map<K, V> values) {
         boolean result = this.internalMapCondition.containsOnlyEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotContainsOnlyEntriesOf(Map<K, V> values) {
+    final public Completable<Map<K, V>> doesNotContainsOnlyEntriesOf(Map<K, V> values) {
         boolean result = this.internalMapCondition.doesNotContainsOnlyEntriesOf(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsOnlyOnceValues(V... values) {
+    final public Completable<Map<K, V>> containsOnlyOnceValues(V... values) {
         boolean result = this.internalMapCondition.containsOnlyOnceValues(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
     @SafeVarargs
-    final public CompletableResult<Map<K, V>> containsMoreThanOnceValues(V... values) {
+    final public Completable<Map<K, V>> containsMoreThanOnceValues(V... values) {
         boolean result = this.internalMapCondition.containsMoreThanOnceValues(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> isEmpty() {
+    final public Completable<Map<K, V>> isEmpty() {
         boolean result = this.internalMapCondition.isEmpty();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> isNotEmpty() {
+    final public Completable<Map<K, V>> isNotEmpty() {
         boolean result = !this.internalMapCondition.isEmpty();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> hasAnyValuesOfTypes(Class<?>... values) {
+    final public Completable<Map<K, V>> hasAnyValuesOfTypes(Class<?>... values) {
         boolean result = this.internalMapCondition.hasAnyValuesOfTypes(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotHasAnyValuesOfTypes(Class<?>... values) {
+    final public Completable<Map<K, V>> doesNotHasAnyValuesOfTypes(Class<?>... values) {
         boolean result = !this.internalMapCondition.hasAnyValuesOfTypes(values);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsNullValues() {
+    final public Completable<Map<K, V>> containsNullValues() {
         boolean result = this.internalMapCondition.containsNullValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotContainsNullValues() {
+    final public Completable<Map<K, V>> doesNotContainsNullValues() {
         boolean result = !this.internalMapCondition.containsNullValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> containsOnlyNullValues() {
+    final public Completable<Map<K, V>> containsOnlyNullValues() {
         boolean result = this.internalMapCondition.containsOnlyNullValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotContainsOnlyNullValues() {
+    final public Completable<Map<K, V>> doesNotContainsOnlyNullValues() {
         boolean result = !this.internalMapCondition.containsOnlyNullValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> hasDuplicateValues() {
+    final public Completable<Map<K, V>> hasDuplicateValues() {
         boolean result = this.internalMapCondition.hasDuplicateValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> doesNotHasDuplicateValues() {
+    final public Completable<Map<K, V>> doesNotHasDuplicateValues() {
         boolean result = !this.internalMapCondition.hasDuplicateValues();
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> anyValuesMatch(Predicate<V> predicate) {
+    final public Completable<Map<K, V>> anyValuesMatch(Predicate<V> predicate) {
         boolean result = this.internalMapCondition.anyValuesMatch(predicate);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> allValuesMatch(Predicate<V> predicate) {
+    final public Completable<Map<K, V>> allValuesMatch(Predicate<V> predicate) {
         boolean result = this.internalMapCondition.allValuesMatch(predicate);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
     @Override
-    final public CompletableResult<Map<K, V>> noneValuesMatch(Predicate<V> predicate) {
+    final public Completable<Map<K, V>> noneValuesMatch(Predicate<V> predicate) {
         boolean result = this.internalMapCondition.noneValuesMatch(predicate);
-        return new CompletableResult<>(term, result);
+        return new Completable<>(term, result);
     }
 
 }

@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.booleans;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.AbstractCondition;
 
 public class BooleanCondition extends AbstractCondition<Boolean> implements IBooleanCondition<Boolean> {
@@ -10,15 +10,15 @@ public class BooleanCondition extends AbstractCondition<Boolean> implements IBoo
     }
 
     @Override
-    public CompletableResult<Boolean> isTrue() {
+    public Completable<Boolean> isTrue() {
         boolean value = this.term.value();
-        return new CompletableResult<>(term, value);
+        return new Completable<>(term, value);
     }
 
     @Override
-    public CompletableResult<Boolean> isFalse() {
+    public Completable<Boolean> isFalse() {
         boolean value = !this.term.value();
-        return new CompletableResult<>(term, value);
+        return new Completable<>(term, value);
     }
 
 }

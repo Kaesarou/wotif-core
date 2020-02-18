@@ -1,10 +1,7 @@
 package org.wotif.core.api;
 
-import io.vavr.control.Option;
-import org.wotif.core.api.controls.MapControl;
-
+import java.util.Objects;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class Result<T> {
 
@@ -25,20 +22,16 @@ public class Result<T> {
         this.value = value;
     }
 
-    public InstructionsBlock<T, Void> then(CallBack callBack) {
-        Instructions<T, Void> instructions = new Instructions<>(this, callBack);
+    public InstructionsBlock<T, Void> then(CallBack callback) {
+        Objects.requireNonNull(callback, "callback is null");
+        Instructions<T, Void> instructions = new Instructions<>(this.term, this, callback);
         return new InstructionsBlock<>(instructions);
     }
 
-    public <R> InstructionsBlock<T, R> then(Supplier<R> supplier) {
-        Instructions<T, R> instructions = new Instructions<>(this, supplier);
+    public <R> InstructionsBlock<T, R> then(Function<T, R> function) {
+        Objects.requireNonNull(function, "supplier is null");
+        Instructions<T, R> instructions = new Instructions<>(this.term, this, function);
         return new InstructionsBlock<>(instructions);
-    }
-
-    public <R> MapControl<T, R> map(Function<? super T, ? extends R> mapper) {
-        if (this.value)
-            return new MapControl<>(Option.of(term.value()), mapper);
-        return new MapControl<>(Option.of(term.value()), null);
     }
 
 }

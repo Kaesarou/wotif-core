@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.number.floating.floats;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.typed.number.floating.FloatingCondition;
 import org.wotif.core.api.condition.typed.number.floating.IFloatingCondition;
 
@@ -21,23 +21,23 @@ public class FloatCondition extends FloatingCondition<Float> implements IFloatin
     }
 
     @Override
-    public CompletableResult<Float> isNumber() {
-        return new CompletableResult<>(term, !this.term.value().isNaN());
+    public Completable<Float> isNumber() {
+        return new Completable<>(term, !this.term.value().isNaN());
     }
 
     @Override
-    public CompletableResult<Float> isNaN() {
-        return new CompletableResult<>(term, this.term.value().isNaN());
+    public Completable<Float> isNaN() {
+        return new Completable<>(term, this.term.value().isNaN());
     }
 
     @Override
-    public CompletableResult<Float> isInfinite() {
-        return new CompletableResult<>(term, this.term.value().isInfinite());
+    public Completable<Float> isInfinite() {
+        return new Completable<>(term, this.term.value().isInfinite());
     }
 
     @Override
-    public CompletableResult<Float> isFinite() {
-        return new CompletableResult<>(term, !this.term.value().isInfinite());
+    public Completable<Float> isFinite() {
+        return new Completable<>(term, !this.term.value().isInfinite());
     }
 
 }

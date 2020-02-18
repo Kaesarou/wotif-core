@@ -1,21 +1,21 @@
 package org.wotif.core.api.condition.typed.number.floating;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.typed.number.INumberCondition;
 
 public interface IFloatingCondition<F extends Number & Comparable<F>, R>
         extends INumberCondition<F, R> {
 
-    CompletableResult<R> isCloseTo(Integer expected);
+    Completable<R> isCloseTo(Integer expected);
 
-    CompletableResult<R> isNotCloseTo(Integer expected);
+    Completable<R> isNotCloseTo(Integer expected);
 
-    CompletableResult<R> isNumber();
+    Completable<R> isNumber();
 
-    CompletableResult<R> isNaN();
+    Completable<R> isNaN();
 
-    CompletableResult<R> isInfinite();
+    Completable<R> isInfinite();
 
-    CompletableResult<R> isFinite();
+    Completable<R> isFinite();
 
 }

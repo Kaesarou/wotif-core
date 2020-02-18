@@ -10,7 +10,7 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithContainsThenReturnOne() {
         Integer result = whenAnyOf("test", "none", "none").contains("est")
-                .then(() -> 1)
+                .then(t ->1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -18,8 +18,8 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithContainsThenReturnZero() {
         Integer result = whenAnyOf("none", "none", "none").contains("est")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -27,8 +27,8 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithEqualsThenReturnOne() {
         Integer result = whenAnyOf("test", "none", "none").isEqualTo("test")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -36,8 +36,8 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithEqualsThenReturnZero() {
         Integer result = whenAnyOf("none", "none", "none").isEqualTo("test")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -45,8 +45,8 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithIsNullThenReturnOne() {
         Integer result = whenAnyOf(null, "string", "string").isNull()
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -54,8 +54,8 @@ public class AnyOfStringConditionalTest {
     @Test
     public void testAnyOfWithIsNullThenReturnZero() {
         Integer result = whenAnyOf("string", "string", "string").isNull()
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }

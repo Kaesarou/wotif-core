@@ -1,6 +1,7 @@
 package org.wotif.core.api;
 
-import java.util.function.Supplier;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class InstructionsBlock<T, R> {
 
@@ -10,34 +11,34 @@ public class InstructionsBlock<T, R> {
         this.previousInstructions = instructions;
     }
 
-    private InstructionsBlock<T, R> instructionsBlock(Result<?> result, CallBack callBack) {
+    private InstructionsBlock<T, R> instructionsBlock(Result<?> result, CallBack callback) {
         if (this.previousInstructions.result().value())
             return this;
-        Instructions<T, R> newEvaluation = new Instructions<>(result, callBack);
+        Instructions<T, R> newEvaluation = new Instructions<>(this.previousInstructions.term(), result, callback);
         return new InstructionsBlock<>(newEvaluation);
     }
 
-    private InstructionsBlock<T, R> instructionsBlock(Result<?> result, Supplier<R> supplier) {
+    private InstructionsBlock<T, R> instructionsBlock(Result<?> result, Function<T, R> function) {
         if (this.previousInstructions.result().value())
             return this;
-        Instructions<T, R> newEvaluation = new Instructions<>(result, supplier);
+        Instructions<T, R> newEvaluation = new Instructions<>(this.previousInstructions.term(), result, function);
         return new InstructionsBlock<>(newEvaluation);
     }
 
-    public InstructionsBlock<T, R> orElse(CallBack callBack) {
-        return instructionsBlock(new Result<>(this.previousInstructions.result().term(), true), callBack);
+    public InstructionsBlock<T, R> orElse(CallBack callback) {
+        return instructionsBlock(new Result<>(this.previousInstructions.term(), true), callback);
     }
 
-    public InstructionsBlock<T, R> orElse(Supplier<R> supplier) {
-        return instructionsBlock(new Result<>(this.previousInstructions.result().term(), true), supplier);
+    public InstructionsBlock<T, R> orElse(Function<T, R> function) {
+        return instructionsBlock(new Result<>(this.previousInstructions.term(), true), function);
     }
 
-    public InstructionsBlock<T, R> orElse(Result<?> anotherResult, CallBack callBack) {
-        return instructionsBlock(anotherResult, callBack);
+    public InstructionsBlock<T, R> orElse(Result<?> anotherResult, CallBack callback) {
+        return instructionsBlock(anotherResult, callback);
     }
 
-    public InstructionsBlock<T, R> orElse(Result<?> anotherResult, Supplier<R> supplier) {
-        return instructionsBlock(anotherResult, supplier);
+    public InstructionsBlock<T, R> orElse(Result<?> anotherResult, Function<T, R> function) {
+        return instructionsBlock(anotherResult, function);
     }
 
     public R end() {

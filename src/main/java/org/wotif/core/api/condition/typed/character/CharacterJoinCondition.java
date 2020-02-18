@@ -1,6 +1,6 @@
 package org.wotif.core.api.condition.typed.character;
 
-import org.wotif.core.api.CompletableResult;
+import org.wotif.core.api.Completable;
 import org.wotif.core.api.condition.JoinEnum;
 import org.wotif.core.api.condition.typed.ComparableJoinCondition;
 
@@ -20,12 +20,12 @@ public class CharacterJoinCondition
     }
 
     @Override
-    public CompletableResult<List<Character>> isUpperCase() {
+    public Completable<List<Character>> isUpperCase() {
         return this.functionToApply.apply(CharacterCondition::isUpperCase);
     }
 
     @Override
-    public CompletableResult<List<Character>> isLowerCase() {
+    public Completable<List<Character>> isLowerCase() {
         return this.functionToApply.apply(CharacterCondition::isLowerCase);
     }
 

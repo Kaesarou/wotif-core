@@ -13,14 +13,14 @@ public class BooleanConditionTest {
     @Test
     public void returnsOneWithoutExecutions() {
         boolean variableToTest = true;
-        Integer result = when(variableToTest).isTrue().then(() -> 1).end();
+        Integer result = when(variableToTest).isTrue().then(t -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void returnNullWithoutExecutions() {
         boolean variableToTest = false;
-        Integer result = when(variableToTest).isTrue().then(() -> 1).end();
+        Integer result = when(variableToTest).isTrue().then(t -> 1).end();
         Assertions.assertThat(result).isNull();
     }
 
@@ -28,8 +28,8 @@ public class BooleanConditionTest {
     public void orElseReturnZeroWithoutExecutions() {
         boolean variableToTest = false;
         Integer result = when(variableToTest).isTrue()
-                .then(() -> 1)
-                .orElse(() -> 0).end();
+                .then(t -> 1)
+                .orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(0);
     }
 
@@ -37,8 +37,8 @@ public class BooleanConditionTest {
     public void orElseReturnOneWithoutExecutions() {
         boolean variableToTest = true;
         Integer result = when(variableToTest).isTrue()
-                .then(() -> 1)
-                .orElse(() -> 0).end();
+                .then(t -> 1)
+                .orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -46,7 +46,7 @@ public class BooleanConditionTest {
     public void ifIsFalseThenReturnOne() {
         boolean variableToTest = false;
         Integer result = when(variableToTest).isFalse()
-                .then(() -> 1).end();
+                .then(t -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -54,7 +54,7 @@ public class BooleanConditionTest {
     public void ifIsFalseThenReturnZero() {
         boolean variableToTest = false;
         Integer result = when(variableToTest).isFalse()
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -62,7 +62,7 @@ public class BooleanConditionTest {
     public void ifVariableIsEqualToTrueThenReturnOne() {
         boolean variableToTest = true;
         Integer result = when(variableToTest).isEqualTo(true)
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -70,7 +70,7 @@ public class BooleanConditionTest {
     public void ifVariableIsEqualToTrueThenReturnZero() {
         boolean variableToTest = true;
         Integer result = when(variableToTest).isEqualTo(false)
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(0);
     }
 
@@ -78,7 +78,7 @@ public class BooleanConditionTest {
     public void ifVariableIsNotEqualToTrueThenReturnZero() {
         boolean variableToTest = true;
         Integer result = when(variableToTest).isDifferentFrom(false)
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -86,7 +86,7 @@ public class BooleanConditionTest {
     public void ifVariableIsNullThenReturnOne() {
         Boolean variableToTest = null;
         Integer result = when(variableToTest).isNull()
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -94,7 +94,7 @@ public class BooleanConditionTest {
     public void ifVariableIsNotNullThenReturnOne() {
         boolean variableToTest = true;
         Integer result = when(variableToTest).isNotNull()
-                .then(() -> 1).orElse(() -> 0).end();
+                .then(t -> 1).orElse(t -> 0).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
 
@@ -102,7 +102,7 @@ public class BooleanConditionTest {
     public void testTwoDifferentValuesWithIsTrueAndIsFalseThenReturnOne() {
         Integer result = when(true).isTrue()
                 .and(when(false).isFalse())
-                .then(() -> 1)
+                .then(t -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -112,7 +112,7 @@ public class BooleanConditionTest {
         Integer result = when(false).isTrue()
                 .and(when(true).isFalse())
                 .or(whenAllOf(true, true).isTrue())
-                .then(() -> 1).orElse(() -> 0)
+                .then(t -> 1).orElse(t -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -122,7 +122,7 @@ public class BooleanConditionTest {
         Integer result = when(false).isTrue()
                 .and(when(false).isFalse())
                 .or(whenAllOf(false, true).isTrue())
-                .then(() -> 1).orElse(() -> 0)
+                .then(t -> 1).orElse(t -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }

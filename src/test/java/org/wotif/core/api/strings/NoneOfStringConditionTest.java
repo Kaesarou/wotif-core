@@ -10,7 +10,7 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithContainsThenReturnOne() {
         Integer result = whenNoneOf("none", "none", "none").contains("est")
-                .then(() -> 1)
+                .then(t ->1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -18,8 +18,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithContainsThenReturnZero() {
         Integer result = whenNoneOf("test", "none", "none").contains("est")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -27,8 +27,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithEqualsThenReturnOne() {
         Integer result = whenNoneOf("none", "none", "none").isEqualTo("test")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -36,8 +36,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithEqualsThenReturnZero() {
         Integer result = whenNoneOf("test", "none", "none").isEqualTo("test")
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -45,8 +45,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithIsNullThenReturnOne() {
         Integer result = whenNoneOf("string", "string", "string").isNull()
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -54,8 +54,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithIsNullThenReturnZero() {
         Integer result = whenNoneOf(null, "string", "string").isNull()
-                .then(() -> 1)
-                .orElse(() -> 0)
+                .then(t ->1)
+                .orElse(t ->0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
