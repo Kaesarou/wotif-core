@@ -11,13 +11,13 @@ public class Completable<T> extends Result<T> {
     }
 
     public <R> Completable<?> and(Result<R> result) {
-        boolean squashedResult = Stream.of(result.value(), this.value()).allMatch(r -> r);
-        return new Completable<>(new Term<>(ImmutableList.of(result.term(), this.term())), squashedResult);
+        boolean squashedResult = Stream.of(result.result(), this.result()).allMatch(r -> r);
+        return new Completable<>(new Term<>(ImmutableList.of(result.terms(), this.terms())), squashedResult);
     }
 
     public <R> Completable<?> or(Result<R> result) {
-        boolean squashedResult = Stream.of(result.value(), this.value()).anyMatch(r -> r);
-        return new Completable<>(new Term<>(ImmutableList.of(result.value())), squashedResult);
+        boolean squashedResult = Stream.of(result.result(), this.result()).anyMatch(r -> r);
+        return new Completable<>(new Term<>(ImmutableList.of(result.result())), squashedResult);
     }
 
 }

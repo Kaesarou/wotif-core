@@ -32,17 +32,17 @@ public abstract class AbstractJoinCondition<T, C extends AbstractCondition<T>> i
     protected abstract C getInstanceOfCondition(T term);
 
     private Completable<List<T>> allOf(Function<? super C, Completable<T>> method) {
-        boolean value = conditions.stream().allMatch((c) -> method.apply(c).value());
+        boolean value = conditions.stream().allMatch((c) -> method.apply(c).result());
         return new Completable<>(term, value);
     }
 
     private Completable<List<T>> anyOf(Function<? super C, Completable<T>> method) {
-        boolean value = conditions.stream().anyMatch((c) -> method.apply(c).value());
+        boolean value = conditions.stream().anyMatch((c) -> method.apply(c).result());
         return new Completable<>(term, value);
     }
 
     private Completable<List<T>> noneOf(Function<? super C, Completable<T>> method) {
-        boolean value = conditions.stream().noneMatch((c) -> method.apply(c).value());
+        boolean value = conditions.stream().noneMatch((c) -> method.apply(c).result());
         return new Completable<>(term, value);
     }
 

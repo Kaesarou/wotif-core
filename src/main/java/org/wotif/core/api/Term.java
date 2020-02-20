@@ -1,11 +1,11 @@
 package org.wotif.core.api;
 
-public class Term <TYPE> {
+public class Term <T> {
 
-    private final TYPE value;
+    private final T value;
 
-    public Term(TYPE term) { this.value = term; }
+    public Term(T term) { this.value = term; }
 
-    public TYPE value() { return this.value; }
+    public T value() { return this.value; }
 
 }

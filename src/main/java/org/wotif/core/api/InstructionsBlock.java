@@ -1,6 +1,5 @@
 package org.wotif.core.api;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class InstructionsBlock<T, R> {
@@ -12,14 +11,14 @@ public class InstructionsBlock<T, R> {
     }
 
     private InstructionsBlock<T, R> instructionsBlock(Result<?> result, CallBack callback) {
-        if (this.previousInstructions.result().value())
+        if (this.previousInstructions.result().result())
             return this;
         Instructions<T, R> newEvaluation = new Instructions<>(this.previousInstructions.term(), result, callback);
         return new InstructionsBlock<>(newEvaluation);
     }
 
     private InstructionsBlock<T, R> instructionsBlock(Result<?> result, Function<T, R> function) {
-        if (this.previousInstructions.result().value())
+        if (this.previousInstructions.result().result())
             return this;
         Instructions<T, R> newEvaluation = new Instructions<>(this.previousInstructions.term(), result, function);
         return new InstructionsBlock<>(newEvaluation);
@@ -42,7 +41,7 @@ public class InstructionsBlock<T, R> {
     }
 
     public R end() {
-        if (this.previousInstructions.result().value())
+        if (this.previousInstructions.result().result())
             return this.previousInstructions.executeAction();
         return null;
     }
