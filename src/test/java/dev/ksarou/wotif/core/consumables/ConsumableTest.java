@@ -107,7 +107,6 @@ public class ConsumableTest {
 
         Assertions.assertThat(result).contains(5);
         Assertions.assertThat(result).allMatch(e -> e >= 0);
-
     }
 
 }
