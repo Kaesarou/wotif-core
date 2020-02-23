@@ -1,7 +1,7 @@
 package dev.ksarou.wotif.core.condition.typed.number;
 
-import dev.ksarou.wotif.core.condition.typed.ComparableCondition;
 import dev.ksarou.wotif.core.Completable;
+import dev.ksarou.wotif.core.condition.typed.ComparableCondition;
 
 public abstract class AbstractNumberCondition<N extends Number & Comparable<N>>
         extends ComparableCondition<N> implements INumberCondition<N, N> {

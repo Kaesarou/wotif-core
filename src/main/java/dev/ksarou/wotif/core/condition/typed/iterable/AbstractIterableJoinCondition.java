@@ -1,8 +1,8 @@
 package dev.ksarou.wotif.core.condition.typed.iterable;
 
+import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.condition.AbstractJoinCondition;
 import dev.ksarou.wotif.core.condition.JoinEnum;
-import dev.ksarou.wotif.core.Completable;
 
 import java.util.List;
 import java.util.function.Predicate;

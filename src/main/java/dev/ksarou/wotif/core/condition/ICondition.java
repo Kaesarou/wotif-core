@@ -1,7 +1,7 @@
 package dev.ksarou.wotif.core.condition;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import dev.ksarou.wotif.core.Completable;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public interface ICondition<T, R> {
 

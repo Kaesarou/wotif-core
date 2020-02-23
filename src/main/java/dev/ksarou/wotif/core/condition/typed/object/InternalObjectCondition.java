@@ -1,7 +1,7 @@
 package dev.ksarou.wotif.core.condition.typed.object;
 
-import io.vavr.control.Try;
 import dev.ksarou.wotif.core.Term;
+import io.vavr.control.Try;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

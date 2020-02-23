@@ -1,8 +1,8 @@
 package dev.ksarou.wotif.core.condition;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.Term;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Arrays;
 import java.util.List;

@@ -3,15 +3,13 @@ package dev.ksarou.wotif.core;
 import dev.ksarou.wotif.core.condition.JoinEnum;
 import dev.ksarou.wotif.core.condition.typed.iterable.IterableCondition;
 import dev.ksarou.wotif.core.condition.typed.iterable.IterableJoinCondition;
-import dev.ksarou.wotif.core.api.condition.typed.iterable.arrays.*;
+import dev.ksarou.wotif.core.condition.typed.iterable.arrays.*;
 import dev.ksarou.wotif.core.condition.typed.map.MapCondition;
 import dev.ksarou.wotif.core.condition.typed.map.MapJoinCondition;
 import dev.ksarou.wotif.core.condition.typed.object.ObjectCondition;
 import dev.ksarou.wotif.core.condition.typed.object.ObjectJoinCondition;
 import dev.ksarou.wotif.core.condition.typed.string.StringCondition;
 import dev.ksarou.wotif.core.condition.typed.string.StringJoinCondition;
-import dev.ksarou.wotif.core.condition.typed.iterable.arrays.*;
-import org.wotif.core.api.condition.typed.iterable.arrays.*;
 
 import java.util.Map;
 

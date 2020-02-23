@@ -1,8 +1,8 @@
 package dev.ksarou.wotif.core.condition.typed.string;
 
-import org.apache.commons.lang3.StringUtils;
 import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.condition.typed.ComparableCondition;
+import org.apache.commons.lang3.StringUtils;
 
 public class StringCondition extends ComparableCondition<String> implements IStringCondition<String> {
 

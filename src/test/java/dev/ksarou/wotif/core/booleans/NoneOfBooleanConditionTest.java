@@ -4,8 +4,6 @@ import dev.ksarou.wotif.core.Conditions;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static dev.ksarou.wotif.core.Conditions.whenNoneOf;
-
 public class NoneOfBooleanConditionTest {
 
     @Test

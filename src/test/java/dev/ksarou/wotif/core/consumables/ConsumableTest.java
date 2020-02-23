@@ -2,14 +2,11 @@ package dev.ksarou.wotif.core.consumables;
 
 import com.google.common.collect.ImmutableList;
 import dev.ksarou.wotif.core.Consumable;
+import dev.ksarou.wotif.core.objects.TestClass;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import dev.ksarou.wotif.core.objects.TestClass;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;

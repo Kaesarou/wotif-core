@@ -1,8 +1,8 @@
 package dev.ksarou.wotif.core.condition.typed.number.floating.floats;
 
-import dev.ksarou.wotif.core.condition.typed.number.floating.IFloatingCondition;
 import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.condition.typed.number.floating.FloatingCondition;
+import dev.ksarou.wotif.core.condition.typed.number.floating.IFloatingCondition;
 
 public class FloatCondition extends FloatingCondition<Float> implements IFloatingCondition<Float, Float> {
 

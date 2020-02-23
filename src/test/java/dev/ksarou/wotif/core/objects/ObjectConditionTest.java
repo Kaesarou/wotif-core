@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static dev.ksarou.wotif.core.Conditions.when;
-import static dev.ksarou.wotif.core.Conditions.whenAllOf;
 
 public class ObjectConditionTest {
 

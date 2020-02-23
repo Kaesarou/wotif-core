@@ -1,8 +1,8 @@
 package dev.ksarou.wotif.core.condition.typed.number;
 
+import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.condition.JoinEnum;
 import dev.ksarou.wotif.core.condition.typed.ComparableJoinCondition;
-import dev.ksarou.wotif.core.Completable;
 
 import java.util.List;
 

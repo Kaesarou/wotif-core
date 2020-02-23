@@ -1,7 +1,7 @@
 package dev.ksarou.wotif.core.condition.typed.iterable;
 
-import dev.ksarou.wotif.core.condition.ICondition;
 import dev.ksarou.wotif.core.Completable;
+import dev.ksarou.wotif.core.condition.ICondition;
 
 import java.util.function.Predicate;
 
