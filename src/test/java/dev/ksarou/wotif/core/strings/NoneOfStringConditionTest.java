@@ -1,3 +1,8 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
 package dev.ksarou.wotif.core.strings;
 
 import org.assertj.core.api.Assertions;
@@ -10,7 +15,7 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithContainsThenReturnOne() {
         Integer result = whenNoneOf("none", "none", "none").contains("est")
-                .then(() ->1)
+                .then(() -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -18,8 +23,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithContainsThenReturnZero() {
         Integer result = whenNoneOf("test", "none", "none").contains("est")
-                .then(() ->1)
-                .orElse(() ->0)
+                .then(() -> 1)
+                .orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -27,8 +32,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithEqualsThenReturnOne() {
         Integer result = whenNoneOf("none", "none", "none").isEqualTo("test")
-                .then(() ->1)
-                .orElse(() ->0)
+                .then(() -> 1)
+                .orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -36,8 +41,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithEqualsThenReturnZero() {
         Integer result = whenNoneOf("test", "none", "none").isEqualTo("test")
-                .then(() ->1)
-                .orElse(() ->0)
+                .then(() -> 1)
+                .orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }
@@ -45,8 +50,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithIsNullThenReturnOne() {
         Integer result = whenNoneOf("string", "string", "string").isNull()
-                .then(() ->1)
-                .orElse(() ->0)
+                .then(() -> 1)
+                .orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -54,8 +59,8 @@ public class NoneOfStringConditionTest {
     @Test
     public void testNoneOfWithIsNullThenReturnZero() {
         Integer result = whenNoneOf(null, "string", "string").isNull()
-                .then(() ->1)
-                .orElse(() ->0)
+                .then(() -> 1)
+                .orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
     }

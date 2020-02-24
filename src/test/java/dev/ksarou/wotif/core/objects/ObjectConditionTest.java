@@ -1,3 +1,8 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
 package dev.ksarou.wotif.core.objects;
 
 import org.assertj.core.api.Assertions;
@@ -13,7 +18,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_2 = new TestClass("test", 1, true);
 
         Integer result = when(objectToTest_1).hasNullProperties()
-                .and(when(objectToTest_2).doesNotHasNullProperties()).then(() ->1).end();
+                .and(when(objectToTest_2).doesNotHasNullProperties()).then(() -> 1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -23,9 +28,9 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass(null, null, null);
         TestClass objectToTest_2 = new TestClass(null, null, true);
 
-        Integer result_1 = when(objectToTest_1).hasAllNullProperties().then(() ->1).end();
-        Integer result_2 = when(objectToTest_2).hasAllNullProperties().then(() ->1)
-                .orElse(() ->0).end();
+        Integer result_1 = when(objectToTest_1).hasAllNullProperties().then(() -> 1).end();
+        Integer result_2 = when(objectToTest_2).hasAllNullProperties().then(() -> 1)
+                .orElse(() -> 0).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
         Assertions.assertThat(result_2).isEqualTo(0);
@@ -36,9 +41,9 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
         TestClass objectToTest_2 = new TestClass(null, 1, true);
 
-        Integer result_1 = when(objectToTest_1).hasNoNullProperties().then(() ->1).end();
-        Integer result_2 = when(objectToTest_2).hasNoNullProperties().then(() ->1)
-                .orElse(() ->0).end();
+        Integer result_1 = when(objectToTest_1).hasNoNullProperties().then(() -> 1).end();
+        Integer result_2 = when(objectToTest_2).hasNoNullProperties().then(() -> 1)
+                .orElse(() -> 0).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
         Assertions.assertThat(result_2).isEqualTo(0);
@@ -49,7 +54,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
         Integer result_1 = when(objectToTest_1).hasProperty("property_1")
-                .and(when(objectToTest_1).doesNotHasProperty("test")).then(() ->1).end();
+                .and(when(objectToTest_1).doesNotHasProperty("test")).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
@@ -59,7 +64,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
         Integer result_1 = when(objectToTest_1).hasPropertyWithValue("property_1", "test")
-                .and(when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() ->1).end();
+                .and(when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
