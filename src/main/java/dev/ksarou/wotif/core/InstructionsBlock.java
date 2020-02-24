@@ -30,11 +30,11 @@ public class InstructionsBlock<T, R> {
     }
 
     public InstructionsBlock<T, R> orElse(CallBack callback) {
-        return instructionsBlock(new Result<>(null, true), callback);
+        return instructionsBlock(Result.of(null, true), callback);
     }
 
     public InstructionsBlock<T, R> orElse(Supplier<R> supplier) {
-        return instructionsBlock(new Result<>(null, true), supplier);
+        return instructionsBlock(Result.of(null, true), supplier);
     }
 
     public InstructionsBlock<T, R> orElse(Result<?> anotherResult, CallBack callback) {

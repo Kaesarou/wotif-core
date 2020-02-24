@@ -5,6 +5,16 @@
  */
 package dev.ksarou.wotif.core;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * Class Term ...
+ *
+ * @author Cesare de Padua
+ * Created on 24/02/2020
+ */
 public class Term<T> {
 
     private final T value;
@@ -15,6 +25,15 @@ public class Term<T> {
 
     public T value() {
         return this.value;
+    }
+
+    public Term<?> concat(Term<?> term) {
+        List<Object> squashedTerms = new ArrayList<>();
+        if (this.value instanceof Collection) squashedTerms.addAll((Collection<?>) this.value);
+        else squashedTerms.add(this.value);
+        if (term.value() instanceof Collection) squashedTerms.addAll((Collection<?>) term.value());
+        else squashedTerms.add(term.value());
+        return new Term<>(squashedTerms);
     }
 
 }

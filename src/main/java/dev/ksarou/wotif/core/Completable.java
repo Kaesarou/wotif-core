@@ -5,24 +5,38 @@
  */
 package dev.ksarou.wotif.core;
 
-import com.google.common.collect.ImmutableList;
-
 import java.util.stream.Stream;
 
-public class Completable<T> extends Result<T> {
+public class Completable<T> implements Result<T> {
+
+    Result<T> result;
 
     public Completable(Term<T> term, boolean value) {
-        super(term, value);
+        this.result = Result.of(term, value);
     }
 
     public <R> Completable<?> and(Result<R> result) {
         boolean squashedResult = Stream.of(result.result(), this.result()).allMatch(r -> r);
-        return new Completable<>(new Term<>(ImmutableList.of(result.terms(), this.terms())), squashedResult);
+        return new Completable<>(this.result.terms().concat(result.terms()), squashedResult);
     }
 
     public <R> Completable<?> or(Result<R> result) {
         boolean squashedResult = Stream.of(result.result(), this.result()).anyMatch(r -> r);
-        return new Completable<>(new Term<>(ImmutableList.of(result.result())), squashedResult);
+        return new Completable<>(this.result.terms().concat(result.terms()), squashedResult);
     }
 
+    @Override
+    public Term<T> terms() {
+        return result.terms();
+    }
+
+    @Override
+    public T get() {
+        return result.get();
+    }
+
+    @Override
+    public boolean result() {
+        return result.result();
+    }
 }

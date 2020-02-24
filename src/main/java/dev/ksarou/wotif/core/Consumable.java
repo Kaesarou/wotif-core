@@ -28,8 +28,7 @@ public interface Consumable<T> {
     }
 
     private static <T> Consumable<T> none() {
-        Consumable.None<T> none = (None<T>) None.INSTANCE;
-        return none;
+        return (None<T>) None.INSTANCE;
     }
 
     default <R> Consumable<R> map(Function<? super T, ? extends R> mapper) {

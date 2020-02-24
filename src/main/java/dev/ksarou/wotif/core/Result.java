@@ -5,43 +5,92 @@
  */
 package dev.ksarou.wotif.core;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-public class Result<T> implements Consumable<T> {
+/**
+ * Class Result ...
+ *
+ * @author Cesare de Padua
+ * Created on 24/02/2020
+ */
+public interface Result<T> extends Consumable<T> {
 
-    private final Term<T> terms;
+    Term<T> terms();
 
-    private final boolean result;
-
-    public boolean result() {
-        return this.result;
+    static <T> Result<T> of(Term<T> terms, boolean value) {
+        return value ? trueInstance(terms) : falseInstance(terms);
     }
 
-    public Term<T> terms() {
-        return this.terms;
+    private static <T> Result<T> falseInstance(Term<T> terms) {
+        return new Result.False<>(terms);
     }
 
-    @Override
-    public T get() {
-        return this.terms.value();
+    private static <T> Result<T> trueInstance(Term<T> terms) {
+        return new Result.True<>(terms);
     }
 
-    public Result(Term<T> terms, boolean result) {
-        this.terms = terms;
-        this.result = result;
-    }
-
-    public InstructionsBlock<T, Void> then(CallBack callback) {
+    default InstructionsBlock<T, Void> then(CallBack callback) {
         Objects.requireNonNull(callback, "callback is null");
         Instructions<T, Void> instructions = new Instructions<>(this, callback);
         return new InstructionsBlock<>(instructions);
     }
 
-    public <R> InstructionsBlock<T, R> then(Supplier<R> supplier) {
+    default <R> InstructionsBlock<T, R> then(Supplier<R> supplier) {
         Objects.requireNonNull(supplier, "supplier is null");
         Instructions<T, R> instructions = new Instructions<>(this, supplier);
         return new InstructionsBlock<>(instructions);
+    }
+
+    final class False<T> implements Result<T> {
+
+        private final Term<T> terms;
+
+        public False(Term<T> terms) {
+            this.terms = terms;
+        }
+
+        @Override
+        public T get() {
+            throw new NoSuchElementException("No value present");
+        }
+
+        @Override
+        public Term<T> terms() {
+            return this.terms;
+        }
+
+        @Override
+        public boolean result() {
+            return false;
+        }
+
+    }
+
+    final class True<T> implements Result<T> {
+
+        private final Term<T> terms;
+
+        public True(Term<T> terms) {
+            this.terms = terms;
+        }
+
+        @Override
+        public T get() {
+            return this.terms.value();
+        }
+
+        @Override
+        public Term<T> terms() {
+            return this.terms;
+        }
+
+        @Override
+        public boolean result() {
+            return true;
+        }
+
     }
 
 }
