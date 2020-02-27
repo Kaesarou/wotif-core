@@ -9,24 +9,16 @@ import io.vavr.control.Either;
 
 import java.util.function.Supplier;
 
-public class Instructions<T, R> {
-
-    private final Result<?> result;
+public class Instructions<R> {
 
     private Either<Supplier<R>, CallBack> action;
 
-    public Instructions(Result<?> result, Supplier<R> supplier) {
-        this.result = result;
+    public Instructions(Supplier<R> supplier) {
         this.action = Either.left(supplier);
     }
 
-    public Instructions(Result<?> result, CallBack callback) {
-        this.result = result;
+    public Instructions(CallBack callback) {
         this.action = Either.right(callback);
-    }
-
-    public Result<?> result() {
-        return this.result;
     }
 
     public R executeAction() {

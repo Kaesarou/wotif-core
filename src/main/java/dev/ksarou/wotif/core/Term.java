@@ -10,8 +10,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Class Term ...
- *
+ * Class Term is a
+ * container class for all terms used in condition evaluation
  * @author Cesare de Padua
  * Created on 24/02/2020
  */
@@ -27,6 +27,12 @@ public class Term<T> {
         return this.value;
     }
 
+    /**
+     * Method concat transform the value of a term into a list
+     * and add another term value to it (it is used with logical operators)
+     * @param term of type Term<?> contains the term to concat
+     * @return Term<?>
+     */
     public Term<?> concat(Term<?> term) {
         List<Object> squashedTerms = new ArrayList<>();
         if (this.value instanceof Collection) squashedTerms.addAll((Collection<?>) this.value);

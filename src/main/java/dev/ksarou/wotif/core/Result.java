@@ -10,7 +10,8 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * Class Result ...
+ * Class Result contains the result of a statement
+ * and the terms used for the evaluation
  *
  * @author Cesare de Padua
  * Created on 24/02/2020
@@ -31,18 +32,40 @@ public interface Result<T> extends Consumable<T> {
         return new Result.True<>(terms);
     }
 
-    default InstructionsBlock<T, Void> then(CallBack callback) {
+    /**
+     * Method then : instructions to execute if the value of
+     * the result is true
+     *
+     * @param callback of type CallBack, contains an expression with no arguments
+     *                 and no return value
+     * @return InstructionsBlock<T, Void>
+     */
+    default InstructionsBlock<Void> then(CallBack callback) {
         Objects.requireNonNull(callback, "callback is null");
-        Instructions<T, Void> instructions = new Instructions<>(this, callback);
-        return new InstructionsBlock<>(instructions);
+        Instructions<Void> instructions = new Instructions<>(callback);
+        return new InstructionsBlock<>(this, instructions);
     }
 
-    default <R> InstructionsBlock<T, R> then(Supplier<R> supplier) {
+    /**
+     * Method then : instructions to execute if the value of
+     * the result is true
+     *
+     * @param supplier of type Supplier<R>
+     * @return InstructionsBlock<T, R>
+     */
+    default <R> InstructionsBlock<R> then(Supplier<R> supplier) {
         Objects.requireNonNull(supplier, "supplier is null");
-        Instructions<T, R> instructions = new Instructions<>(this, supplier);
-        return new InstructionsBlock<>(instructions);
+        Instructions<R> instructions = new Instructions<>(supplier);
+        return new InstructionsBlock<>(this, instructions);
     }
 
+    /**
+     * Class False
+     * a result with false value
+     *
+     * @author Cesare de Padua
+     * Created on 26/02/2020
+     */
     final class False<T> implements Result<T> {
 
         private final Term<T> terms;
@@ -68,6 +91,13 @@ public interface Result<T> extends Consumable<T> {
 
     }
 
+    /**
+     * Class True
+     * a result with true value
+     *
+     * @author Cesare de Padua
+     * Created on 26/02/2020
+     */
     final class True<T> implements Result<T> {
 
         private final Term<T> terms;
