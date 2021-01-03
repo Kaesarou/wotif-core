@@ -6,7 +6,7 @@
 package dev.ksarou.wotif.core.booleans;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicReference;
 

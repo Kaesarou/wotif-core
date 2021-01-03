@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableList;
 import dev.ksarou.wotif.core.Consumable;
 import dev.ksarou.wotif.core.objects.TestClass;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;

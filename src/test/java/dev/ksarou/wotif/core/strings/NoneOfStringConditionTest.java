@@ -6,7 +6,7 @@
 package dev.ksarou.wotif.core.strings;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dev.ksarou.wotif.core.Conditions.whenNoneOf;
 

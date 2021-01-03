@@ -7,7 +7,7 @@ package dev.ksarou.wotif.core.booleans;
 
 import dev.ksarou.wotif.core.Conditions;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class NoneOfBooleanConditionTest {
 
