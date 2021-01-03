@@ -12,8 +12,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public abstract class AbstractCondition<T> implements ICondition<T, T> {
 
     protected Term<T> term;
-
-
+    
     public AbstractCondition(T term) {
         this.term = new Term<>(term);
     }

@@ -21,7 +21,7 @@ public class CharacterConditionTest {
     @Test
     public void testIfCharacterIsUpperCaseOrLowerCaseThenReturn2() {
         Integer result = when('c').isUpperCase()
-                .then(() -> 1).orElse(when('c').isLowerCase(), () -> 2)
+                .then(() -> 1).orElse(() -> when('c').isLowerCase(), () -> 2)
                 .end();
         Assertions.assertThat(result).isEqualTo(2);
     }

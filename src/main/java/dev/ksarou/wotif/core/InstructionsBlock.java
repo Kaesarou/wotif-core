@@ -5,7 +5,6 @@
  */
 package dev.ksarou.wotif.core;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -19,7 +18,7 @@ public class InstructionsBlock<R> {
 
     private final Result<?> previousResult;
 
-    private Instructions<R> previousInstructions;
+    private final Instructions<R> previousInstructions;
 
     public InstructionsBlock(Result<?> result, Instructions<R> instructions) {
         this.previousResult = result;
@@ -29,38 +28,38 @@ public class InstructionsBlock<R> {
     /**
      * If the result contained in the previous ins
      *
-     * @param result   of type Result<?>
-     * @param callback of type CallBack
+     * @param resultSupplier of type Result<?>
+     * @param runnable       of type Runnable
      * @return InstructionsBlock<T, R>
      */
-    private InstructionsBlock<R> instructionsBlock(Result<?> result, Runnable callback) {
+    private InstructionsBlock<R> instructionsBlock(Supplier<Result<?>> resultSupplier, Runnable runnable) {
         if (this.previousResult.result())
             return this;
-        Instructions<R> newEvaluation = new Instructions<>(callback);
-        return new InstructionsBlock<>(result, newEvaluation);
+        Instructions<R> newEvaluation = new Instructions<>(runnable);
+        return new InstructionsBlock<>(resultSupplier.get(), newEvaluation);
     }
 
-    private InstructionsBlock<R> instructionsBlock(Result<?> result, Supplier<R> supplier) {
+    private InstructionsBlock<R> instructionsBlock(Supplier<Result<?>> resultSupplier, Supplier<R> supplier) {
         if (this.previousResult.result())
             return this;
         Instructions<R> newEvaluation = new Instructions<>(supplier);
-        return new InstructionsBlock<>(result, newEvaluation);
+        return new InstructionsBlock<>(resultSupplier.get(), newEvaluation);
     }
 
-    public InstructionsBlock<R> orElse(Runnable callback) {
-        return instructionsBlock(Result.of(null, true), callback);
+    public InstructionsBlock<R> orElse(Runnable runnable) {
+        return instructionsBlock(() -> Result.of(null, true), runnable);
     }
 
     public InstructionsBlock<R> orElse(Supplier<R> supplier) {
-        return instructionsBlock(Result.of(null, true), supplier);
+        return instructionsBlock(() -> Result.of(null, true), supplier);
     }
 
-    public InstructionsBlock<R> orElse(Result<?> anotherResult, Runnable callback) {
-        return instructionsBlock(anotherResult, callback);
+    public InstructionsBlock<R> orElse(Supplier<Result<?>> resultSupplier, Runnable runnable) {
+        return instructionsBlock(resultSupplier, runnable);
     }
 
-    public InstructionsBlock<R> orElse(Result<?> anotherResult, Supplier<R> supplier) {
-        return instructionsBlock(anotherResult, supplier);
+    public InstructionsBlock<R> orElse(Supplier<Result<?>> resultSupplier, Supplier<R> supplier) {
+        return instructionsBlock(resultSupplier, supplier);
     }
 
     public R end() {

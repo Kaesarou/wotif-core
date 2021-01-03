@@ -82,7 +82,7 @@ public class StringConditionTest {
     @Test
     public void testTwoDifferentValuesWithIsEqualAndContainsThenReturnOne() {
         Integer result = when("string").isEqualTo("string")
-                .and(when("none").contains("on"))
+                .and(() -> when("none").contains("on"))
                 .then(() -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -91,8 +91,8 @@ public class StringConditionTest {
     @Test
     public void testDifferentValuesWithIsEqualContainsOrAllOfContainsThenReturnOne() {
         Integer result = when("string").isEqualTo("string")
-                .and(when("string").contains("none"))
-                .or(whenAllOf("string", "string").contains("ing"))
+                .and(() -> when("string").contains("none"))
+                .or(() -> whenAllOf("string", "string").contains("ing"))
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -101,8 +101,8 @@ public class StringConditionTest {
     @Test
     public void testDifferentValuesWithIsEqualContainsOrAllOfContainsThenReturnZero() {
         Integer result = when("string").isEqualTo("string")
-                .and(when("string").contains("none"))
-                .or(whenAllOf("none", "string").contains("ing"))
+                .and(() -> when("string").contains("none"))
+                .or(() -> whenAllOf("none", "string").contains("ing"))
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
@@ -347,7 +347,7 @@ public class StringConditionTest {
     @Test
     public void testOrElseTestWithExpectedReturn1() {
         Integer result = when("montest").isEqualTo("montest")
-                .then(() -> 1).orElse(when("mo").contains("o"), () -> 2)
+                .then(() -> 1).orElse(() -> when("mo").contains("o"), () -> 2)
                 .orElse(() -> 3).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -355,7 +355,7 @@ public class StringConditionTest {
     @Test
     public void testOrElseTestWithExpectedReturn2() {
         Integer result = when("montest").isEqualTo("test")
-                .then(() -> 1).orElse(when("mo").contains("o"), () -> 2)
+                .then(() -> 1).orElse(() -> when("mo").contains("o"), () -> 2)
                 .orElse(() -> 3).end();
         Assertions.assertThat(result).isEqualTo(2);
     }
@@ -363,7 +363,7 @@ public class StringConditionTest {
     @Test
     public void testOrElseTestWithExpectedReturn3() {
         Integer result = when("montest").isEqualTo("test")
-                .then(() -> 1).orElse(when("mo").contains("ing"), () -> 2)
+                .then(() -> 1).orElse(() -> when("mo").contains("ing"), () -> 2)
                 .orElse(() -> 3).end();
         Assertions.assertThat(result).isEqualTo(3);
     }
@@ -372,8 +372,8 @@ public class StringConditionTest {
     public void testOrElseWithCallbackThenReturn1() {
         AtomicReference<Integer> result = new AtomicReference<>(0);
         when("monTest").contains("ing").then(() -> result.set(1))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("A").isEmpty()), () -> result.set(2))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("A").isNotEmpty()), () -> result.set(3))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("A").isEmpty()), () -> result.set(2))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("A").isNotEmpty()), () -> result.set(3))
                 .end();
         Assertions.assertThat(result.get()).isEqualTo(3);
     }
@@ -382,8 +382,8 @@ public class StringConditionTest {
     public void testOrElseWithCallbackThenReturn0() {
         AtomicReference<Integer> result = new AtomicReference<>(0);
         when("monTest").contains("ing").then(() -> result.set(1))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("A").isEmpty()), () -> result.set(2))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("").isNotEmpty()), () -> result.set(3))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("A").isEmpty()), () -> result.set(2))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("").isNotEmpty()), () -> result.set(3))
                 .end();
         Assertions.assertThat(result.get()).isEqualTo(0);
     }
@@ -392,8 +392,8 @@ public class StringConditionTest {
     public void testOrElseWithCallbackThenReturn2() {
         AtomicReference<Integer> result = new AtomicReference<>(0);
         when("monTest").contains("ing").then(() -> result.set(1))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("").isEmpty()), () -> result.set(2))
-                .orElse(when("monTest").isEqualTo("monTest").and(when("").isNotEmpty()), () -> result.set(3))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("").isEmpty()), () -> result.set(2))
+                .orElse(() -> when("monTest").isEqualTo("monTest").and(() -> when("").isNotEmpty()), () -> result.set(3))
                 .end();
         Assertions.assertThat(result.get()).isEqualTo(2);
     }
@@ -404,5 +404,4 @@ public class StringConditionTest {
                 .then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
-
 }

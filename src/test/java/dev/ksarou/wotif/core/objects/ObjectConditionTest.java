@@ -18,7 +18,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_2 = new TestClass("test", 1, true);
 
         Integer result = when(objectToTest_1).hasNullProperties()
-                .and(when(objectToTest_2).doesNotHasNullProperties()).then(() -> 1).end();
+                .and(() -> when(objectToTest_2).doesNotHasNullProperties()).then(() -> 1).end();
 
         Assertions.assertThat(result).isEqualTo(1);
     }
@@ -54,7 +54,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
         Integer result_1 = when(objectToTest_1).hasProperty("property_1")
-                .and(when(objectToTest_1).doesNotHasProperty("test")).then(() -> 1).end();
+                .and(() -> when(objectToTest_1).doesNotHasProperty("test")).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }
@@ -64,7 +64,7 @@ public class ObjectConditionTest {
         TestClass objectToTest_1 = new TestClass("test", 1, true);
 
         Integer result_1 = when(objectToTest_1).hasPropertyWithValue("property_1", "test")
-                .and(when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
+                .and(() -> when(objectToTest_1).doesNotHasPropertyWithValue("property_2", 2)).then(() -> 1).end();
 
         Assertions.assertThat(result_1).isEqualTo(1);
     }

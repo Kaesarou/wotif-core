@@ -7,7 +7,6 @@ package dev.ksarou.wotif.core;
 
 import io.vavr.control.Either;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class Instructions<R> {
@@ -28,5 +27,4 @@ public class Instructions<R> {
             return null;
         });
     }
-
 }

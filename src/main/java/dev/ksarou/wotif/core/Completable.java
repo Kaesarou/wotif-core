@@ -5,6 +5,7 @@
  */
 package dev.ksarou.wotif.core;
 
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class Completable<T> implements Result<T> {
@@ -15,14 +16,20 @@ public class Completable<T> implements Result<T> {
         this.result = Result.of(term, value);
     }
 
-    public <R> Completable<?> and(Result<R> result) {
-        boolean squashedResult = Stream.of(result.result(), this.result()).allMatch(r -> r);
-        return new Completable<>(this.result.terms().concat(result.terms()), squashedResult);
+    public <R> Completable<?> and(Supplier<Result<R>> resultSupplier) {
+        if (!this.result()) {
+            return this;
+        }
+        boolean squashedResult = Stream.of(resultSupplier.get().result(), this.result()).allMatch(r -> r);
+        return new Completable<>(this.result.terms().concat(resultSupplier.get().terms()), squashedResult);
     }
 
-    public <R> Completable<?> or(Result<R> result) {
-        boolean squashedResult = Stream.of(result.result(), this.result()).anyMatch(r -> r);
-        return new Completable<>(this.result.terms().concat(result.terms()), squashedResult);
+    public <R> Completable<?> or(Supplier<Result<R>> resultSupplier) {
+        if (this.result()) {
+            return this;
+        }
+        boolean squashedResult = Stream.of(resultSupplier.get().result(), this.result()).anyMatch(r -> r);
+        return new Completable<>(this.result.terms().concat(resultSupplier.get().terms()), squashedResult);
     }
 
     @Override

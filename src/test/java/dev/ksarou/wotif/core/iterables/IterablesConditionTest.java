@@ -274,13 +274,13 @@ public class IterablesConditionTest {
         List<Character> listCharacters2 = ImmutableList.of('e', 'f', 'g', 'h');
         Set<String> setStrings = ImmutableSet.of("aa", "bb", "cc", "dd");
         Integer result = whenAnyOf(listCharacters, listCharacters2).contains('c')
-                .and(when(setStrings).hasSizeBetween(1, 6))
-                .and(when(listCharacters).anyMatch(e -> e.equals('b')))
+                .and(() -> when(setStrings).hasSizeBetween(1, 6))
+                .and(() -> when(listCharacters).anyMatch(e -> e.equals('b')))
                 .then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
         Integer result2 = whenAnyOf(listCharacters, listCharacters2).contains('j')
-                .and(when(setStrings).hasSizeBetween(1, 6))
-                .and(when(listCharacters).anyMatch(e -> e.equals('b')))
+                .and(() -> when(setStrings).hasSizeBetween(1, 6))
+                .and(() -> when(listCharacters).anyMatch(e -> e.equals('b')))
                 .then(() -> 1).orElse(() -> 0).end();
         Assertions.assertThat(result2).isEqualTo(0);
     }

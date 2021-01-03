@@ -106,7 +106,7 @@ public class BooleanConditionTest {
     @Test
     public void testTwoDifferentValuesWithIsTrueAndIsFalseThenReturnOne() {
         Integer result = when(true).isTrue()
-                .and(when(false).isFalse())
+                .and(() -> when(false).isFalse())
                 .then(() -> 1)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -115,8 +115,8 @@ public class BooleanConditionTest {
     @Test
     public void testDifferentValuesWithIsTrueIsFalseOrAllOfIsTrueThenReturnOne() {
         Integer result = when(false).isTrue()
-                .and(when(true).isFalse())
-                .or(whenAllOf(true, true).isTrue())
+                .and(() -> when(true).isFalse())
+                .or(() -> whenAllOf(true, true).isTrue())
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(1);
@@ -125,8 +125,8 @@ public class BooleanConditionTest {
     @Test
     public void testDifferentValuesWithIsTrueIsFalseOrAllOfIsTrueThenReturnZero() {
         Integer result = when(false).isTrue()
-                .and(when(false).isFalse())
-                .or(whenAllOf(false, true).isTrue())
+                .and(() -> when(false).isFalse())
+                .or(() -> whenAllOf(false, true).isTrue())
                 .then(() -> 1).orElse(() -> 0)
                 .end();
         Assertions.assertThat(result).isEqualTo(0);
