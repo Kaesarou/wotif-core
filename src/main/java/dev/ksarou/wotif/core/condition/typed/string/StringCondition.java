@@ -8,6 +8,7 @@ package dev.ksarou.wotif.core.condition.typed.string;
 import dev.ksarou.wotif.core.Completable;
 import dev.ksarou.wotif.core.condition.typed.ComparableCondition;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class StringCondition extends ComparableCondition<String> implements IStringCondition<String> {
 
@@ -17,7 +18,7 @@ public class StringCondition extends ComparableCondition<String> implements IStr
 
     @Override
     public Completable<String> contains(String contains) {
-        boolean value = this.term.value().contains(contains);
+        boolean value = StringUtils.contains(this.term.value(), contains);
         return new Completable<>(term, value);
     }
 
@@ -29,7 +30,7 @@ public class StringCondition extends ComparableCondition<String> implements IStr
 
     @Override
     public Completable<String> notContains(String notContains) {
-        boolean value = !this.term.value().contains(notContains);
+        boolean value = !StringUtils.contains(this.term.value(), notContains);
         return new Completable<>(term, value);
     }
 
@@ -46,13 +47,14 @@ public class StringCondition extends ComparableCondition<String> implements IStr
     }
 
     @Override
-    public Completable<String> isContainedIn(String stringContainer) {
+    public Completable<String> isContainedIn(@NonNull String stringContainer) {
+
         boolean value = stringContainer.contains(this.term.value());
         return new Completable<>(term, value);
     }
 
     @Override
-    public Completable<String> isNotContainedIn(String stringContainer) {
+    public Completable<String> isNotContainedIn(@NonNull String stringContainer) {
         boolean value = !stringContainer.contains(this.term.value());
         return new Completable<>(term, value);
     }
@@ -111,13 +113,13 @@ public class StringCondition extends ComparableCondition<String> implements IStr
 
     @Override
     public Completable<String> isBlank() {
-        boolean value = this.term.value().isBlank();
+        boolean value = StringUtils.isBlank(this.term.value());
         return new Completable<>(term, value);
     }
 
     @Override
     public Completable<String> isNotBlank() {
-        boolean value = !this.term.value().isBlank();
+        boolean value = StringUtils.isNotBlank(this.term.value());
         return new Completable<>(term, value);
     }
 

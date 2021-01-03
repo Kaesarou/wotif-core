@@ -404,4 +404,20 @@ public class StringConditionTest {
                 .then(() -> 1).end();
         Assertions.assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void testContainsOnNullStringShouldNotThrowsExceptions() {
+        String string = null;
+        Integer result = when(string).contains("push").then(() -> 1)
+                .orElse(() -> 0).end();
+        Assertions.assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void testContainsShouldBeFalse() {
+        String string = "pull";
+        Integer result = when(string).contains("push").then(() -> 1)
+                .orElse(() -> 0).end();
+        Assertions.assertThat(result).isEqualTo(0);
+    }
 }

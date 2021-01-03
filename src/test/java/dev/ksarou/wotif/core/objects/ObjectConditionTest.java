@@ -69,4 +69,10 @@ public class ObjectConditionTest {
         Assertions.assertThat(result_1).isEqualTo(1);
     }
 
+    @Test
+    public void testThatWhenTermIsNullNoExceptionIsThrown() {
+        Object someObject = null;
+        Integer result = when(someObject).hasProperty("test").then(() -> 1).orElse(() -> 0).end();
+        Assertions.assertThat(result).isEqualTo(0);
+    }
 }

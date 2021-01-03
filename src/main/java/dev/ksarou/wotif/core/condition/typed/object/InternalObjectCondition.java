@@ -14,6 +14,12 @@ import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+/**
+ *
+ * @author Cesare de Padua
+ * @param <T> object type
+ * Created on 24/02/2020
+ */
 class InternalObjectCondition<T> {
 
     Term<T> term;
@@ -23,6 +29,9 @@ class InternalObjectCondition<T> {
     }
 
     private Stream<Field> fields() {
+        if (this.term.value() == null) {
+            return Stream.empty();
+        }
         Field[] fields = this.term.value().getClass().getDeclaredFields();
         return Arrays.stream(fields).filter(m -> !m.isSynthetic());
     }
