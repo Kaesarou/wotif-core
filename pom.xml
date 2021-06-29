@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <name>wotif-core</name>
-    <url>https://ksarou.github.io/wotif/</url>
+    <url>https://kaesarou.github.io/wotif/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,8 +22,8 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub Ksarou Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Ksarou/wotif-core</url>
+            <name>GitHub Kaesarou Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Kaesarou/wotif-core</url>
         </repository>
     </distributionManagement>
 
