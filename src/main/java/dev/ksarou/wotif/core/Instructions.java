@@ -7,26 +7,26 @@ package dev.ksarou.wotif.core;
 
 import io.vavr.control.Either;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class Instructions<R> {
 
-    private Either<Supplier<R>, CallBack> action;
+    private final Either<Supplier<R>, Runnable> action;
 
     public Instructions(Supplier<R> supplier) {
         this.action = Either.left(supplier);
     }
 
-    public Instructions(CallBack callback) {
+    public Instructions(Runnable callback) {
         this.action = Either.right(callback);
     }
 
     public R executeAction() {
-        if (this.action.isLeft()) {
-            return this.action.left().get().get();
-        }
-        this.action.right().get().execute();
-        return null;
+        return this.action.fold(Supplier::get, runnable -> {
+            runnable.run();
+            return null;
+        });
     }
 
 }

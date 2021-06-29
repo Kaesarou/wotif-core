@@ -5,6 +5,7 @@
  */
 package dev.ksarou.wotif.core;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -32,7 +33,7 @@ public class InstructionsBlock<R> {
      * @param callback of type CallBack
      * @return InstructionsBlock<T, R>
      */
-    private InstructionsBlock<R> instructionsBlock(Result<?> result, CallBack callback) {
+    private InstructionsBlock<R> instructionsBlock(Result<?> result, Runnable callback) {
         if (this.previousResult.result())
             return this;
         Instructions<R> newEvaluation = new Instructions<>(callback);
@@ -46,7 +47,7 @@ public class InstructionsBlock<R> {
         return new InstructionsBlock<>(result, newEvaluation);
     }
 
-    public InstructionsBlock<R> orElse(CallBack callback) {
+    public InstructionsBlock<R> orElse(Runnable callback) {
         return instructionsBlock(Result.of(null, true), callback);
     }
 
@@ -54,7 +55,7 @@ public class InstructionsBlock<R> {
         return instructionsBlock(Result.of(null, true), supplier);
     }
 
-    public InstructionsBlock<R> orElse(Result<?> anotherResult, CallBack callback) {
+    public InstructionsBlock<R> orElse(Result<?> anotherResult, Runnable callback) {
         return instructionsBlock(anotherResult, callback);
     }
 

@@ -40,7 +40,7 @@ public interface Result<T> extends Consumable<T> {
      *                 and no return value
      * @return InstructionsBlock<T, Void>
      */
-    default InstructionsBlock<Void> then(CallBack callback) {
+    default InstructionsBlock<Void> then(Runnable callback) {
         Objects.requireNonNull(callback, "callback is null");
         Instructions<Void> instructions = new Instructions<>(callback);
         return new InstructionsBlock<>(this, instructions);
